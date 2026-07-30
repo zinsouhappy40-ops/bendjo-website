@@ -17,6 +17,7 @@ interface InfusionStoryProps {
   materialImage: string;
   materialAlt: string;
   materialPosition: string;
+  contentFirst?: boolean;
   onAdd: (product: Product) => void;
 }
 
@@ -88,13 +89,13 @@ function MaterialImage({ src, alt, position, className = "" }: { src: string; al
 }
 
 function InfusionStory(props: InfusionStoryProps) {
-  const { product, tone, layout, packagingWidth, packagingHeight, packagingPosition, materialImage, materialAlt, materialPosition } = props;
+  const { product, tone, layout, packagingWidth, packagingHeight, packagingPosition, materialImage, materialAlt, materialPosition, contentFirst = false } = props;
 
   if (layout === "feature") {
     return (
-      <section id={product.id} className={`${toneStyles[tone].surface} py-20 sm:py-24 lg:py-32`} aria-labelledby={`${product.id}-title`}>
+      <section id={product.id} className={`${toneStyles[tone].surface} py-12 sm:py-16 lg:py-20`} aria-labelledby={`${product.id}-title`}>
         <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 sm:px-6 md:grid-cols-12 md:items-center md:gap-10 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-[1fr_0.45fr] md:col-span-7">
+          <div className={`grid gap-4 sm:grid-cols-[1fr_0.45fr] md:col-span-7 ${contentFirst ? "order-2" : ""}`}>
             <figure className="overflow-hidden rounded-bendjo-md bg-kraft/15">
               <PackagingImage product={product} width={packagingWidth} height={packagingHeight} position={packagingPosition} className="aspect-[4/5]" />
             </figure>
@@ -102,7 +103,7 @@ function InfusionStory(props: InfusionStoryProps) {
               <MaterialImage src={materialImage} alt={materialAlt} position={materialPosition} className="aspect-[4/3] sm:aspect-auto" />
             </figure>
           </div>
-          <div className="md:col-span-5">
+          <div className={`md:col-span-5 ${contentFirst ? "order-1" : ""}`}>
             <ProductInformation {...props} />
           </div>
         </div>
@@ -112,12 +113,12 @@ function InfusionStory(props: InfusionStoryProps) {
 
   if (layout === "split") {
     return (
-      <section id={product.id} className={`${toneStyles[tone].surface} py-20 sm:py-24 lg:py-32`} aria-labelledby={`${product.id}-title`}>
+      <section id={product.id} className={`${toneStyles[tone].surface} py-12 sm:py-16 lg:py-20`} aria-labelledby={`${product.id}-title`}>
         <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 sm:px-6 md:grid-cols-12 md:items-center md:gap-10 lg:px-8">
-          <div className="md:col-span-5">
+          <div className="order-2 md:order-1 md:col-span-5">
             <ProductInformation {...props} />
           </div>
-          <div className="grid grid-cols-[0.72fr_1fr] gap-4 md:col-span-7">
+          <div className="order-1 grid grid-cols-[0.72fr_1fr] gap-4 md:order-2 md:col-span-7">
             <figure className="overflow-hidden rounded-bendjo-md bg-kraft/15">
               <MaterialImage src={materialImage} alt={materialAlt} position={materialPosition} className="aspect-[3/4]" />
             </figure>
@@ -131,7 +132,7 @@ function InfusionStory(props: InfusionStoryProps) {
   }
 
   return (
-    <section id={product.id} className={`${toneStyles[tone].surface} py-20 sm:py-24 lg:py-32`} aria-labelledby={`${product.id}-title`}>
+    <section id={product.id} className={`${toneStyles[tone].surface} py-12 sm:py-16 lg:py-20`} aria-labelledby={`${product.id}-title`}>
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
         <figure className="overflow-hidden rounded-bendjo-md bg-kraft/15">
           <MaterialImage src={materialImage} alt={materialAlt} position={materialPosition} className="aspect-[16/7]" />

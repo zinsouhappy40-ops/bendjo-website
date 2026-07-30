@@ -3,18 +3,17 @@ import Cart from "../features/Cart";
 import HomeProductRow from "./HomeProductRow";
 import { products } from "../../data/products";
 import { useCart } from "../../hooks/useCart";
-import hibiscusPackaging from "../../assets/images/products/WhatsApp Image 2026-07-22 at 22.21.54.jpeg";
 import basilPackaging from "../../assets/images/products/637760295_122173934096783112_5011838352445723711_n.jpg";
 import lemongrassPackaging from "../../assets/images/products/515492394_122145102872783112_1937735358128729147_n.jpg";
 
 const homeProducts = [
   {
-    product: { ...products[0], image: hibiscusPackaging, alt: "Packaging réel de l’infusion Hibiscus BenDjo" },
+    product: products[0],
     profile: "Fruité et rafraîchissant",
     tone: "hibiscus" as const,
-    imagePosition: "center 48%",
-    imageWidth: 810,
-    imageHeight: 1080,
+    imagePosition: "center",
+    imageWidth: 768,
+    imageHeight: 768,
   },
   {
     product: { ...products[1], image: basilPackaging, alt: "Packaging réel des infusions BenDjo, dont l’infusion Basilic" },
@@ -53,14 +52,13 @@ function InfusionChooser() {
         </div>
 
         <div>
-          {homeProducts.map((item, index) => {
+          {homeProducts.map((item) => {
             const quantity = state.items.find(({ product }) => product.id === item.product.id)?.quantity ?? 0;
             return (
               <HomeProductRow
                 key={item.product.id}
                 {...item}
                 quantity={quantity}
-                reverse={index % 2 === 1}
                 onAdd={(product) => dispatch({ type: "add", product })}
               />
             );

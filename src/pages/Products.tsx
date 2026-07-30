@@ -6,7 +6,9 @@ import { products } from "../data/products";
 import { useCart } from "../hooks/useCart";
 import DocumentMeta from "../components/SEO/DocumentMeta";
 import heroImage from "../assets/images/products/637760295_122173934096783112_5011838352445723711_n.jpg";
-import materialImage from "../assets/images/inspi/plantes-provenance.jpg";
+import hibiscusIngredientImage from "../assets/images/products/ingredient-hibiscus.jpg";
+import basilIngredientImage from "../assets/images/products/ingredient-basilic.jpg";
+import lemongrassIngredientImage from "../assets/images/products/ingredient-citronnelle.jpg";
 
 const whatsappNumber = "2290162014161";
 const whatsappMessage = encodeURIComponent("Bonjour BenDjo, je souhaite commander vos infusions naturelles.");
@@ -18,35 +20,39 @@ const infusionDetails = [
     story: "Une infusion naturelle à base d’hibiscus, fabriquée au Bénin à partir d’ingrédients locaux.",
     tone: "hibiscus" as const,
     layout: "feature" as const,
-    packagingWidth: 810,
-    packagingHeight: 1080,
-    packagingPosition: "center 46%",
+    packagingWidth: 768,
+    packagingHeight: 768,
+    packagingPosition: "center",
+    materialImage: hibiscusIngredientImage,
     materialAlt: "Fleurs d’hibiscus parmi les ingrédients locaux des infusions BenDjo",
-    materialPosition: "8% 82%",
+    materialPosition: "center",
   },
   {
     product: products[1],
     profile: "Doux et aromatique",
     story: "Une infusion naturelle à base de basilic, fabriquée au Bénin à partir d’ingrédients locaux.",
     tone: "basil" as const,
-    layout: "split" as const,
+    layout: "feature" as const,
+    contentFirst: true,
     packagingWidth: 1536,
     packagingHeight: 2048,
     packagingPosition: "62% 22%",
+    materialImage: basilIngredientImage,
     materialAlt: "Feuilles de basilic parmi les ingrédients locaux des infusions BenDjo",
-    materialPosition: "58% 42%",
+    materialPosition: "center",
   },
   {
     product: products[2],
     profile: "Végétal et épicé",
     story: "BenDjo associe la citronnelle et le clou de girofle dans une infusion naturelle fabriquée au Bénin.",
     tone: "lemongrass" as const,
-    layout: "panorama" as const,
+    layout: "feature" as const,
     packagingWidth: 1536,
     packagingHeight: 2048,
     packagingPosition: "center 22%",
+    materialImage: lemongrassIngredientImage,
     materialAlt: "Tiges de citronnelle parmi les ingrédients locaux des infusions BenDjo",
-    materialPosition: "16% 12%",
+    materialPosition: "center",
   },
 ];
 
@@ -155,7 +161,6 @@ function Products() {
           <InfusionStory
             key={detail.product.id}
             {...detail}
-            materialImage={materialImage}
             quantity={quantity}
             onAdd={(product) => dispatch({ type: "add", product })}
           />

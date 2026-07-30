@@ -9,7 +9,6 @@ interface HomeProductRowProps {
   imageWidth: number;
   imageHeight: number;
   quantity: number;
-  reverse?: boolean;
   onAdd: (product: Product) => void;
 }
 
@@ -19,10 +18,10 @@ const toneStyles = {
   lemongrass: "bg-lemongrass",
 };
 
-function HomeProductRow({ product, profile, tone, imagePosition = "center", imageWidth, imageHeight, quantity, reverse = false, onAdd }: HomeProductRowProps) {
+function HomeProductRow({ product, profile, tone, imagePosition = "center", imageWidth, imageHeight, quantity, onAdd }: HomeProductRowProps) {
   return (
-    <article className="grid items-center gap-8 border-t border-ink/15 py-10 first:border-t-0 sm:py-14 md:grid-cols-12 md:gap-10 lg:gap-16">
-      <div className={`overflow-hidden rounded-bendjo-md bg-kraft/15 md:col-span-7 ${reverse ? "md:order-2" : ""}`}>
+    <article className="flex flex-col gap-8 border-t border-ink/15 py-8 first:border-t-0 sm:py-10 md:grid md:grid-cols-12 md:items-center md:gap-10 lg:gap-16">
+      <div className="overflow-hidden rounded-bendjo-md bg-kraft/15 md:col-span-7">
         <img
           src={product.image}
           alt={product.alt}
@@ -34,7 +33,7 @@ function HomeProductRow({ product, profile, tone, imagePosition = "center", imag
           decoding="async"
         />
       </div>
-      <div className={`md:col-span-5 ${reverse ? "md:order-1" : ""}`}>
+      <div className="md:col-span-5">
         <p className="flex items-center gap-2 text-sm font-semibold text-ink/70">
           <span className={`h-2.5 w-2.5 rounded-full ${toneStyles[tone]}`} aria-hidden="true" />
           {profile}
