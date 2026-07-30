@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  /* Couleurs de marque BenDjo — BRAND/DESIGN_SYSTEM.md */
+  --color-leaf: #4B7F52;
+  --color-ink: #203B28;
+  --color-kraft: #C89B6B;
+  --color-cream: #F5EFE6;
+  --color-hibiscus: #D64545;
+  --color-lemongrass: #E08A2E;
+  --color-basil: #E895A3;
+
+  /* Typographie — Sentient (titres) + Switzer (corps), via Fontshare — Decision 003 */
+  --font-display: "Sentient", Georgia, serif;
+  --font-sans: "Switzer", Arial, sans-serif;
+
+  /* Border radius — soft & welcoming */
+  --radius-bendjo-sm: 8px;
+  --radius-bendjo-md: 16px;
+  --radius-bendjo-lg: 24px;
+
+  /* Elevation and focus — restrained, accessible states */
+  --shadow-bendjo-soft: 0 16px 40px rgb(75 127 82 / 12%);
+  --shadow-bendjo-image: 0 24px 70px rgb(75 127 82 / 16%);
+  --focus-bendjo-ring: 0 0 0 3px var(--color-cream), 0 0 0 5px var(--color-leaf);
+
+  /* Courbe d'easing de marque — unifie toutes les transitions (génère la classe ease-bendjo) */
+  --ease-bendjo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background-color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+
+p {
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+textarea,
+select,
+nav,
+[role="button"] {
+  font-family: var(--font-sans);
+}
+
+button,
+[role="button"] {
+  font-weight: 600;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-leaf);
+  outline-offset: 3px;
+}
+
+/* Grain — texture papier discrète, casse l'effet "trop lisse" sans toucher aux couleurs */
+.bg-grain {
+  position: relative;
+}
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Micro-interactions — apparition douce au chargement, pas de librairie nécessaire */
+@keyframes bendjo-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: bendjo-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@supports (animation-timeline: view()) {
+  .reveal-on-scroll {
+    animation: bendjo-fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+  }
+
+  /* Parallax léger — les images dérivent très légèrement pendant la traversée du viewport */
+  @keyframes bendjo-parallax {
+    from { transform: translateY(-3%); }
+    to { transform: translateY(3%); }
+  }
+  .parallax-subtle {
+    animation: bendjo-parallax linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .reveal-on-scroll,
+  .parallax-subtle {
+    animation: none;
+  }
+}
