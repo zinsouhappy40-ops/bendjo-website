@@ -32,7 +32,7 @@ interface ContactFormProps {
 type ContactFormErrors = Partial<Record<keyof ContactFormData, string>>;
 type FormControl = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
-const fieldStyles = "mt-2 min-h-12 w-full rounded-bendjo-md border border-leaf/20 bg-cream px-4 text-leaf outline-none transition-colors focus:border-leaf focus-visible:ring-2 focus-visible:ring-leaf";
+const fieldStyles = "mt-2 min-h-12 w-full rounded-bendjo-md border border-ink/60 bg-cream px-4 text-ink outline-none transition-colors focus:border-leaf focus-visible:ring-2 focus-visible:ring-leaf";
 
 function getInitialServiceType(value?: string): ServiceType | "" {
   return value && value in serviceTypes ? value as ServiceType : "";
@@ -144,10 +144,10 @@ function ContactForm({ initialServiceType }: ContactFormProps) {
 
   return (
     <form className="space-y-6" noValidate onSubmit={handleSubmit}>
-      <p className="text-sm leading-6 text-leaf/75">Les champs marqués d’un <span aria-hidden="true">*</span> sont obligatoires.</p>
+      <p className="text-sm leading-6 text-ink/75">Les champs marqués d’un <span aria-hidden="true">*</span> sont obligatoires.</p>
 
       <div>
-        <label className="block text-sm font-medium text-leaf" htmlFor="contact-service-type"><RequiredLabel>Type de prestation</RequiredLabel></label>
+        <label className="block text-sm font-medium text-ink" htmlFor="contact-service-type"><RequiredLabel>Type de prestation</RequiredLabel></label>
         <select
           id="contact-service-type"
           className={fieldStyles}
@@ -161,62 +161,62 @@ function ContactForm({ initialServiceType }: ContactFormProps) {
           <option value="">Choisir une prestation</option>
           {Object.entries(serviceTypes).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select>
-        {errors.serviceType && <p id="contact-service-type-error" className="mt-2 text-sm text-hibiscus" role="alert">{errors.serviceType}</p>}
+        {errors.serviceType && <p id="contact-service-type-error" className="mt-2 text-sm font-semibold text-ink" role="alert">{errors.serviceType}</p>}
       </div>
 
       <div className="grid min-w-0 gap-5 sm:grid-cols-2">
         <div className="min-w-0">
-          <label className="block text-sm font-medium text-leaf" htmlFor="contact-location">Lieu</label>
+          <label className="block text-sm font-medium text-ink" htmlFor="contact-location">Lieu</label>
           <input id="contact-location" className={fieldStyles} type="text" name="location" autoComplete="address-level2" value={values.location} onChange={handleChange} />
         </div>
         <div className="min-w-0">
-          <label className="block text-sm font-medium text-leaf" htmlFor="contact-date">Date envisagée</label>
+          <label className="block text-sm font-medium text-ink" htmlFor="contact-date">Date envisagée</label>
           <input id="contact-date" className={fieldStyles} type="date" name="date" value={values.date} onChange={handleChange} />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-leaf" htmlFor="contact-guest-count">Nombre approximatif de personnes</label>
+        <label className="block text-sm font-medium text-ink" htmlFor="contact-guest-count">Nombre approximatif de personnes</label>
         <input id="contact-guest-count" className={fieldStyles} type="text" inputMode="numeric" name="guestCount" value={values.guestCount} onChange={handleChange} />
       </div>
 
       <div className="grid min-w-0 gap-5 sm:grid-cols-2">
         <div className="min-w-0">
-          <label className="block text-sm font-medium text-leaf" htmlFor="contact-name"><RequiredLabel>Nom</RequiredLabel></label>
+          <label className="block text-sm font-medium text-ink" htmlFor="contact-name"><RequiredLabel>Nom</RequiredLabel></label>
           <input id="contact-name" className={fieldStyles} type="text" name="name" required autoComplete="name" value={values.name} aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "contact-name-error" : undefined} onChange={handleChange} />
-          {errors.name && <p id="contact-name-error" className="mt-2 text-sm text-hibiscus" role="alert">{errors.name}</p>}
+          {errors.name && <p id="contact-name-error" className="mt-2 text-sm font-semibold text-ink" role="alert">{errors.name}</p>}
         </div>
         <div className="min-w-0">
-          <label className="block text-sm font-medium text-leaf" htmlFor="contact-company">Entreprise</label>
+          <label className="block text-sm font-medium text-ink" htmlFor="contact-company">Entreprise</label>
           <input id="contact-company" className={fieldStyles} type="text" name="company" autoComplete="organization" value={values.company} onChange={handleChange} />
         </div>
       </div>
 
       <div className="grid min-w-0 gap-5 sm:grid-cols-2">
         <div className="min-w-0">
-          <label className="block text-sm font-medium text-leaf" htmlFor="contact-email"><RequiredLabel>Adresse email</RequiredLabel></label>
+          <label className="block text-sm font-medium text-ink" htmlFor="contact-email"><RequiredLabel>Adresse email</RequiredLabel></label>
           <input id="contact-email" className={fieldStyles} type="email" name="email" required autoComplete="email" value={values.email} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "contact-email-error" : undefined} onChange={handleChange} />
-          {errors.email && <p id="contact-email-error" className="mt-2 text-sm text-hibiscus" role="alert">{errors.email}</p>}
+          {errors.email && <p id="contact-email-error" className="mt-2 text-sm font-semibold text-ink" role="alert">{errors.email}</p>}
         </div>
         <div className="min-w-0">
-          <label className="block text-sm font-medium text-leaf" htmlFor="contact-phone">Téléphone</label>
+          <label className="block text-sm font-medium text-ink" htmlFor="contact-phone">Téléphone</label>
           <input id="contact-phone" className={fieldStyles} type="tel" name="phone" autoComplete="tel" value={values.phone} onChange={handleChange} />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-leaf" htmlFor="contact-message"><RequiredLabel>Message complémentaire</RequiredLabel></label>
+        <label className="block text-sm font-medium text-ink" htmlFor="contact-message"><RequiredLabel>Message complémentaire</RequiredLabel></label>
         <textarea id="contact-message" className={`${fieldStyles} min-h-36 py-3`} name="message" required value={values.message} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "contact-message-error" : undefined} onChange={handleChange} />
-        {errors.message && <p id="contact-message-error" className="mt-2 text-sm text-hibiscus" role="alert">{errors.message}</p>}
+        {errors.message && <p id="contact-message-error" className="mt-2 text-sm font-semibold text-ink" role="alert">{errors.message}</p>}
       </div>
 
-      <Button type="submit">Continuer sur WhatsApp</Button>
+      <Button type="submit" variant="ink">Continuer sur WhatsApp</Button>
 
       {status === "ready" && (
-        <p className="text-sm leading-6 text-leaf" role="status" aria-live="polite">Votre demande est prête. Autorisez l’ouverture de WhatsApp pour continuer.</p>
+        <p className="text-sm leading-6 text-ink" role="status" aria-live="polite">Votre demande est prête. Autorisez l’ouverture de WhatsApp pour continuer.</p>
       )}
       {status === "openedWhatsApp" && (
-        <p className="text-sm leading-6 text-leaf" role="status" aria-live="polite">Votre demande a été préparée dans WhatsApp. Vérifiez le message, puis envoyez-le vous-même pour le transmettre à BenDjo.</p>
+        <p className="text-sm leading-6 text-ink" role="status" aria-live="polite">Votre demande a été préparée dans WhatsApp. Vérifiez le message, puis envoyez-le vous-même pour le transmettre à BenDjo.</p>
       )}
     </form>
   );

@@ -78,7 +78,7 @@ function Services() {
               <article className="grid gap-4 border-b border-cream/25 py-6 sm:grid-cols-[0.8fr_1fr] sm:gap-8 lg:grid-cols-[0.8fr_1fr_auto] lg:items-center">
                 <h3 className="font-display text-2xl leading-tight text-cream">Lancement de produit</h3>
                 <p className="leading-7 text-cream/75">Le service traiteur BenDjo est notamment proposé pour les événements de lancement de produit.</p>
-                <a href="#lancement-produit" className="inline-flex min-h-11 items-center rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Voir le contexte</a>
+                <a href="/contact?type=lancement" className="inline-flex min-h-11 items-center rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Voir le contexte</a>
               </article>
             </div>
           </Container>
