@@ -14,7 +14,7 @@ function SectionHeader({ label, title, description, action, align = "left" }: Se
   return (
     <header className={`flex max-w-2xl flex-col ${alignment}`}>
       {label && (
-        <p className="type-label mb-3 text-kraft">
+        <p className="type-label mb-3 text-ink/75">
           {label}
         </p>
       )}
@@ -22,7 +22,7 @@ function SectionHeader({ label, title, description, action, align = "left" }: Se
         {title}
       </h2>
       {description && (
-        <p className="mt-4 max-w-xl text-base leading-7 text-leaf/75 sm:text-lg">
+        <p className="mt-4 max-w-xl text-base leading-7 text-ink/80 sm:text-lg">
           {description}
         </p>
       )}

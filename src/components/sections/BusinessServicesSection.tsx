@@ -7,8 +7,8 @@ const contactLinkStyles = "type-action inline-flex min-h-12 w-full items-center 
 
 function BusinessServicesSection() {
   return (
-    <section className="bg-ink py-20 text-cream sm:py-28 lg:py-32" aria-labelledby="business-services-title">
-      <Container className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24">
+    <section className="bg-ink py-16 text-cream sm:py-20 lg:py-24" aria-labelledby="business-services-title">
+      <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
         <div>
           <p className="type-kicker text-cream/75">Pour les entreprises</p>
           <h2 id="business-services-title" className="type-section-title-lg mt-3 text-cream">

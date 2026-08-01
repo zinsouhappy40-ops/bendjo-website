@@ -9,6 +9,7 @@ import basilPackaging480 from "../../assets/images/optimized/home-basilic-480.we
 import basilPackaging1024 from "../../assets/images/optimized/home-basilic-1024.webp";
 import citronnellePackaging480 from "../../assets/images/optimized/home-citronnelle-480.webp";
 import citronnellePackaging1024 from "../../assets/images/optimized/home-citronnelle-1024.webp";
+import { ArrowRight } from "@phosphor-icons/react";
 
 const homeProducts = [
   {
@@ -57,7 +58,7 @@ function InfusionChooser() {
             <p className="type-body text-pretty text-cream/80 sm:text-lg sm:leading-8">
               Trois infusions naturelles, fabriquées au Bénin, dans le même format et au même prix.
             </p>
-            <TextLink to="/products" className="mt-3 font-semibold text-cream decoration-cream/40 hover:text-cream/75 focus-visible:ring-cream focus-visible:ring-offset-ink">Découvrir les infusions</TextLink>
+            <TextLink to="/products" tone="dark" className="mt-3 gap-2 font-semibold">Découvrir les infusions <ArrowRight size={17} weight="regular" aria-hidden="true" /></TextLink>
           </div>
         </div>
 

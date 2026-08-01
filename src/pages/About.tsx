@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Container from "../components/ui/Container";
 import PageHero from "../components/sections/PageHero";
 import DocumentMeta from "../components/SEO/DocumentMeta";
+import { routeMetadata } from "../seo/metadata";
 import { products } from "../data/products";
 import aboutHeroImage480 from "../assets/images/optimized/about-hero-480.webp";
 import aboutHeroImage1024 from "../assets/images/optimized/about-hero-1024.webp";
@@ -21,6 +22,7 @@ import aproposBasilicImage480 from "../assets/images/optimized/packaging-basilic
 import aproposBasilicImage768 from "../assets/images/optimized/packaging-basilic-768.webp";
 import aproposCitronnelleImage480 from "../assets/images/optimized/packaging-citronnelle-480.webp";
 import aproposCitronnelleImage768 from "../assets/images/optimized/packaging-citronnelle-768.webp";
+import { ArrowRight } from "@phosphor-icons/react";
 
 const principles = [
   {
@@ -45,6 +47,7 @@ const infusionProfiles = [
   {
     product: products[0],
     profile: "Fruité et rafraîchissant",
+    description: "Fleurs d’hibiscus séchées au Bénin, pour une infusion rubis et légèrement acidulée.",
     tone: "bg-hibiscus",
     textTone: "text-cream",
     imagePosition: "object-center",
@@ -56,6 +59,7 @@ const infusionProfiles = [
   {
     product: products[1],
     profile: "Doux et aromatique",
+    description: "Feuilles de basilic cultivées localement, pour une infusion douce et herbacée.",
     tone: "bg-basil",
     textTone: "text-ink",
     imagePosition: "object-[center_38%]",
@@ -67,6 +71,7 @@ const infusionProfiles = [
   {
     product: products[2],
     profile: "Végétal et épicé",
+    description: "Fraîcheur végétale de la citronnelle et pointe épicée du clou de girofle, à savourer chaud.",
     tone: "bg-lemongrass",
     textTone: "text-ink",
     imagePosition: "object-center",
@@ -81,15 +86,12 @@ const primaryLinkStyles =
   "inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-cream px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-cream/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:w-auto";
 
 const secondaryLinkStyles =
-  "inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md border border-cream/60 px-7 py-3.5 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:w-auto";
+  "inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-300 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto";
 
 function About() {
   return (
     <>
-      <DocumentMeta
-        title="La provenance vivante | BenDjo"
-        description="Entrez dans l’univers BenDjo : des ingrédients locaux, des infusions naturelles fabriquées au Bénin et des moments à partager."
-      />
+      <DocumentMeta {...routeMetadata.about} />
 
       <div>
         <PageHero id="about-title" label="La provenance vivante" title="Retrouver le goût des origines." description="Un geste simple, des ingrédients locaux et des infusions fabriquées au Bénin." image={aboutHeroImage1024} imageSrcSet={`${aboutHeroImage480} 480w, ${aboutHeroImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Infusion BenDjo préparée avec des feuilles fraîches, des plantes aromatiques et des sachets individuels" imageWidth={1024} imageHeight={1024} imagePosition="50% 50%" imageScale={1.18} labelItems={[{ label: "Origine", value: "Bénin" }, { label: "Matière", value: "Ingrédients locaux" }, { label: "Geste", value: "Infuser et partager" }]} actions={<a href="#provenance" className="inline-flex min-h-11 items-center rounded-bendjo-sm text-sm font-semibold text-ink underline decoration-ink/35 underline-offset-4 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream">Suivre la provenance</a>} />
@@ -121,7 +123,7 @@ function About() {
               <div>
                 <div className="flex items-center gap-3">
                   <span className="h-px w-10 bg-kraft" aria-hidden="true" />
-                  <p className="type-label text-ink/70">Terroir béninois</p>
+                  <p className="type-label text-ink/75">Terroir béninois</p>
                 </div>
                 <h2 id="terroir-title" className="type-section-title-lg mt-4 max-w-[10ch] text-ink sm:mt-5">
                   La matière avant les mots.
@@ -132,7 +134,7 @@ function About() {
               </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 lg:grid-cols-[1.2fr_0.8fr] lg:items-stretch">
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <figure className="col-span-2 lg:col-span-1">
                 <img src={hibiscusIngredientImage1024} srcSet={`${hibiscusIngredientImage480} 480w, ${hibiscusIngredientImage1024} 1024w`} sizes="(min-width: 1024px) 619px, calc(100vw - 40px)" alt="Fleurs d’hibiscus séchées" className="aspect-[4/3] w-full rounded-bendjo-md object-cover lg:aspect-[4/5]" width="1024" height="1024" loading="lazy" decoding="async" />
                 <figcaption className="mt-2 text-sm font-semibold text-ink sm:mt-3">Hibiscus</figcaption>
@@ -213,17 +215,18 @@ function About() {
             </div>
 
             <div data-motion-group className="mt-8 grid gap-3 sm:mt-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-              {infusionProfiles.map(({ product, profile, tone, textTone, imagePosition, image, imageSrcSet, imageWidth, imageHeight }, index) => (
-                <article data-motion-item key={product.id} className={`overflow-hidden rounded-bendjo-md ${tone} ${textTone} shadow-[0_12px_32px_rgb(75_127_82_/_0.08)] ring-1 ring-inset ring-leaf/10 ${index === 1 ? "md:translate-y-5" : ""}`}>
+              {infusionProfiles.map(({ product, profile, description, tone, textTone, imagePosition, image, imageSrcSet, imageWidth, imageHeight }) => (
+                <article data-motion-item key={product.id} className={`overflow-hidden rounded-bendjo-md ${tone} ${textTone} shadow-bendjo-card ring-1 ring-inset ring-leaf/10`}>
                   <figure className="aspect-[4/3] overflow-hidden">
                     <img src={image} srcSet={imageSrcSet} sizes="(min-width: 1024px) 341px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 40px)" alt={product.alt} className={`h-full w-full object-cover ${imagePosition}`} width={imageWidth} height={imageHeight} loading="lazy" decoding="async" />
                   </figure>
                   <div className="flex min-h-48 flex-col justify-between gap-7 p-5 sm:min-h-52 sm:p-6 lg:p-7">
-                    <p className="type-label opacity-75">Infusion naturelle</p>
+                    <p className="type-label w-fit bg-cream px-2 py-1 text-ink">Infusion naturelle</p>
                     <div>
                       <h3 className="type-product-title-sm">{product.name.replace("Infusion ", "")}</h3>
                       <p className="mt-3 text-sm font-semibold leading-5">{profile}</p>
-                      <p className="mt-1 text-xs opacity-75">Boîte de 10 sachets</p>
+                      <p className="mt-2 text-sm leading-6 opacity-90">{description}</p>
+                      <p className="mt-2 text-xs">Boîte de 10 sachets</p>
                     </div>
                   </div>
                 </article>
@@ -236,24 +239,24 @@ function About() {
           <Container>
             <div className="grid gap-9 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
               <div>
-                <p className="type-kicker text-cream">BenDjo aujourd’hui</p>
+                <p className="type-kicker w-fit bg-cream px-2 py-1 text-ink">BenDjo aujourd’hui</p>
                 <h2 id="today-title" className="type-section-title-lg mt-4 max-w-[10ch] text-cream">Ancrée ici, présente au quotidien.</h2>
               </div>
               <dl className="grid border-t border-cream/30 sm:grid-cols-2">
                 <div className="border-b border-cream/30 py-6 sm:pr-8">
-                  <dt className="type-label text-cream">Ancrage</dt>
+                  <dt className="type-label w-fit bg-cream px-2 py-1 text-ink">Ancrage</dt>
                   <dd className="mt-2 font-display text-2xl text-cream">Entreprise béninoise basée à Cotonou</dd>
                 </div>
                 <div className="border-b border-cream/30 py-6 sm:border-l sm:pl-8">
-                  <dt className="type-label text-cream">Produits</dt>
+                  <dt className="type-label w-fit bg-cream px-2 py-1 text-ink">Produits</dt>
                   <dd className="mt-2 font-display text-2xl text-cream">Infusions naturelles fabriquées au Bénin</dd>
                 </div>
                 <div className="border-b border-cream/30 py-6 sm:pr-8">
-                  <dt className="type-label text-cream">Entreprises</dt>
+                  <dt className="type-label w-fit bg-cream px-2 py-1 text-ink">Entreprises</dt>
                   <dd className="mt-2 font-display text-2xl text-cream">Petit-déjeuner en entreprise</dd>
                 </div>
                 <div className="border-b border-cream/30 py-6 sm:border-l sm:pl-8">
-                  <dt className="type-label text-cream">Événements</dt>
+                  <dt className="type-label w-fit bg-cream px-2 py-1 text-ink">Événements</dt>
                   <dd className="mt-2 font-display text-2xl text-cream">Service traiteur professionnel</dd>
                 </div>
               </dl>
@@ -265,7 +268,7 @@ function About() {
           <Container>
             <div className="grid gap-5 border-t border-ink/20 pt-5 md:grid-cols-[0.78fr_1.22fr] md:gap-10 lg:gap-16">
               <div>
-                <p className="type-kicker text-ink/70">La marque, ici</p>
+                <p className="type-kicker text-ink/75">La marque, ici</p>
                 <h2 id="people-title" className="type-section-title mt-3 max-w-[11ch] text-ink">Une marque ancrée au Bénin.</h2>
               </div>
               <div className="border-y border-ink/20 py-5 sm:py-6">
@@ -288,7 +291,7 @@ function About() {
               <div className="lg:pb-1">
                 <p className="max-w-xl leading-8 text-cream/80">Une infusion pour votre quotidien ou un moment à imaginer avec BenDjo pour votre entreprise.</p>
                 <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row lg:mt-7">
-                  <Link to="/products" className={`${primaryLinkStyles} sm:min-w-52`}>Découvrir les infusions</Link>
+                  <Link to="/products" className={`${primaryLinkStyles} gap-2 sm:min-w-52`}>Découvrir les infusions <ArrowRight size={18} weight="regular" aria-hidden="true" /></Link>
                   <Link to="/contact" className={`${secondaryLinkStyles} sm:min-w-44`}>Présenter un besoin</Link>
                 </div>
               </div>

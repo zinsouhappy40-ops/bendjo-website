@@ -12,7 +12,7 @@ function ProvenanceLabel({ items, className = "" }: ProvenanceLabelProps) {
   const stacksOnDesktop = className.includes("lg:grid-cols-1");
 
   return (
-    <dl className={`grid border border-ink/10 bg-cream text-ink shadow-none sm:shadow-[0_18px_45px_rgb(75_127_82_/_0.18)] ${className}`}>
+    <dl className={`grid border border-ink/10 bg-cream text-ink shadow-none sm:shadow-bendjo-label ${className}`}>
       {items.map(({ label, value }) => (
         <div
           key={label}

@@ -5,14 +5,12 @@ import BusinessServicesSection from "../components/sections/BusinessServicesSect
 import VerifiedFacts from "../components/sections/VerifiedFacts";
 import HomeClosingCTA from "../components/sections/HomeClosingCTA";
 import DocumentMeta from "../components/SEO/DocumentMeta";
+import { routeMetadata } from "../seo/metadata";
 
 function Home() {
   return (
     <>
-      <DocumentMeta
-        title="BenDJo | Infusions naturelles du Bénin et services en entreprise"
-        description="Découvrez BenDJo, marque béninoise d’infusions naturelles fabriquées au Bénin et de services de petit-déjeuner et de restauration en entreprise."
-      />
+      <DocumentMeta {...routeMetadata.home} />
       <Hero />
       <InfusionChooser />
       <ProvenanceSection />

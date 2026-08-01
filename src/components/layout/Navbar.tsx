@@ -10,7 +10,9 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuPanelRef = useRef<HTMLDivElement>(null);
   const cartButtonRef = useRef<HTMLButtonElement>(null);
+  const cartContainerRef = useRef<HTMLDivElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
   const { itemCount } = useCart();
 
@@ -41,6 +43,28 @@ function Navbar() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+
+      if (isCartOpen && !cartContainerRef.current?.contains(target)) {
+        setIsCartOpen(false);
+      }
+
+      if (
+        isMenuOpen
+        && !menuButtonRef.current?.contains(target)
+        && !menuPanelRef.current?.contains(target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [isCartOpen, isMenuOpen]);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-ink/10 bg-cream text-ink" aria-label="Navigation principale">
@@ -73,7 +97,7 @@ function Navbar() {
           ))}
         </div>
 
-         <div className="relative flex items-center justify-self-end gap-2 lg:gap-3">
+         <div ref={cartContainerRef} className="relative flex items-center justify-self-end gap-2 lg:gap-3">
            <NavLink
              to="/products"
              className="hidden min-h-11 items-center rounded-bendjo-md bg-ink px-5 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:inline-flex"
@@ -87,7 +111,10 @@ function Navbar() {
              aria-label={itemCount > 0 ? `Ouvrir la sélection, ${itemCount} article${itemCount > 1 ? "s" : ""}` : "Ouvrir la sélection, sélection vide"}
              aria-expanded={isCartOpen}
              aria-controls="cart-panel"
-             onClick={() => setIsCartOpen((open) => !open)}
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsCartOpen((open) => !open);
+              }}
            >
               <ShoppingBagOpen size={23} weight="regular" aria-hidden="true" />
              {itemCount > 0 && <span className="absolute right-0 top-0 inline-flex min-h-5 min-w-5 -translate-y-1/4 translate-x-1/4 items-center justify-center rounded-full bg-ink px-1 text-[0.68rem] font-semibold leading-none text-cream" aria-hidden="true">{itemCount}</span>}
@@ -102,17 +129,19 @@ function Navbar() {
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          onClick={() => setIsMenuOpen((open) => !open)}
+          onClick={() => {
+            setIsCartOpen(false);
+            setIsMenuOpen((open) => !open);
+          }}
         >
            {isMenuOpen ? <X size={22} weight="regular" aria-hidden="true" /> : <List size={23} weight="regular" aria-hidden="true" />}
         </button>
       </div>
 
       <div
+        ref={menuPanelRef}
         id="mobile-navigation"
-        className={`grid border-t border-ink/10 bg-cream transition-[grid-template-rows,opacity] duration-500 ease-out lg:hidden ${
-          isMenuOpen ? "grid-rows-[1fr] opacity-100" : "pointer-events-none grid-rows-[0fr] opacity-0"
-        }`}
+        className={`absolute inset-x-0 top-full border-t border-ink/10 bg-cream ${isMenuOpen ? "grid" : "hidden"} lg:hidden`}
         aria-hidden={!isMenuOpen}
       >
         <div className="overflow-hidden">

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PageHero from "./PageHero";
 import heroImage480 from "../../assets/images/optimized/home-hero-480.webp";
 import heroImage1024 from "../../assets/images/optimized/home-hero-1024.webp";
-import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight, WhatsappLogo } from "@phosphor-icons/react";
 
 const whatsappNumber = "2290162014161";
 const whatsappMessage = encodeURIComponent("Bonjour BenDjo, je souhaite commander vos infusions naturelles.");
@@ -12,7 +12,7 @@ const secondaryLinkStyles = "inline-flex min-h-11 w-full items-center justify-ce
 
 function Hero() {
   return (
-    <PageHero id="hero-title" label="Infusions naturelles fabriquées au Bénin" title="Des infusions qui nous rassemblent." description="Des infusions naturelles pensées pour les moments que l’on partage." image={heroImage1024} imageSrcSet={`${heroImage480} 480w, ${heroImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Packaging réel des infusions BenDjo présenté lors de leur préparation" imageWidth={1024} imageHeight={1365} imagePosition="center 58%" labelItems={[{ label: "Origine", value: "Fabriqué au Bénin" }]} actions={<><Link to="/products" className={`${primaryLinkStyles} gap-2`}>Choisir mon infusion <ArrowRight size={18} weight="regular" aria-hidden="true" /></Link><a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className={`${secondaryLinkStyles} gap-2`}>Commander sur WhatsApp <ArrowUpRight size={18} weight="regular" aria-hidden="true" /></a></>} />
+    <PageHero id="hero-title" label="Infusions naturelles fabriquées au Bénin" title="Des infusions qui nous rassemblent." description="Des infusions naturelles pensées pour les moments que l’on partage." image={heroImage1024} imageSrcSet={`${heroImage480} 480w, ${heroImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Packaging réel des infusions BenDjo présenté lors de leur préparation" imageWidth={1024} imageHeight={1365} imagePosition="center 58%" labelItems={[{ label: "Origine", value: "Fabriqué au Bénin" }]} actions={<><Link to="/products" className={`${primaryLinkStyles} gap-2`}>Choisir mon infusion <ArrowRight size={18} weight="regular" aria-hidden="true" /></Link><a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className={`${secondaryLinkStyles} gap-2`}><WhatsappLogo size={19} weight="fill" aria-hidden="true" />Commander sur WhatsApp</a></>} />
   );
 }
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Container from "../components/ui/Container";
 import PageHero from "../components/sections/PageHero";
 import DocumentMeta from "../components/SEO/DocumentMeta";
+import { routeMetadata } from "../seo/metadata";
 import servicesHeroImage480 from "../assets/images/optimized/services-hero-480.webp";
 import servicesHeroImage1024 from "../assets/images/optimized/services-hero-1024.webp";
 import breakfastImage480 from "../assets/images/optimized/services-breakfast-480.webp";
@@ -10,7 +11,7 @@ import breakfastSecondaryImage480 from "../assets/images/optimized/services-brea
 import breakfastSecondaryImage1024 from "../assets/images/optimized/services-breakfast-detail-1024.webp";
 import cateringImage480 from "../assets/images/optimized/services-event-480.webp";
 import cateringSecondaryImage480 from "../assets/images/optimized/services-event-detail-480.webp";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight, WhatsappLogo } from "@phosphor-icons/react";
 
 const whatsappNumber = "2290162014161";
 const whatsappMessage = encodeURIComponent("Bonjour BenDjo, je souhaite vous présenter un besoin pour mon entreprise.");
@@ -18,9 +19,9 @@ const whatsappMessage = encodeURIComponent("Bonjour BenDjo, je souhaite vous pr�
 function Services() {
   return (
     <>
-      <DocumentMeta title="Services BenDjo | Petit-déjeuner et traiteur en entreprise" description="Découvrez les services BenDjo : infusions naturelles, petit-déjeuner en entreprise et service traiteur pour les événements de lancement de produit." />
+      <DocumentMeta {...routeMetadata.services} />
       <div>
-         <PageHero id="services-title" label="Services pour entreprises" title="Petit-déjeuner en entreprise et service traiteur." description={<><span>BenDjo propose des prestations pour les entreprises et leurs événements.</span><span className="mt-3 block text-sm font-semibold text-ink">Cotonou et Abomey-Calavi</span></>} image={servicesHeroImage1024} imageSrcSet={`${servicesHeroImage480} 480w, ${servicesHeroImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Table préparée avec des tasses d’infusion et une présentation de restauration pour un moment professionnel" imageWidth={1024} imageHeight={576} imagePosition="center" labelItems={[{ label: "Parcours", value: "Entreprises" }]} actions={<><Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Présenter votre besoin</Link><a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-ink/70 px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Échanger sur WhatsApp <ArrowUpRight size={18} weight="regular" aria-hidden="true" /></a></>} />
+         <PageHero id="services-title" label="Services pour entreprises" title="Petit-déjeuner en entreprise et service traiteur." description={<><span>BenDjo propose des prestations pour les entreprises et leurs événements.</span><span className="mt-3 block text-sm font-semibold text-ink">Cotonou et Abomey-Calavi</span></>} image={servicesHeroImage1024} imageSrcSet={`${servicesHeroImage480} 480w, ${servicesHeroImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Table préparée avec des tasses d’infusion et une présentation de restauration pour un moment professionnel" imageWidth={1024} imageHeight={576} imagePosition="center" labelItems={[{ label: "Parcours", value: "Entreprises" }]} actions={<><Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Présenter votre besoin</Link><a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto"><WhatsappLogo size={19} weight="fill" aria-hidden="true" />Échanger sur WhatsApp</a></>} />
 
         <section className="bg-ink py-9 text-cream sm:py-11 lg:py-12" aria-labelledby="services-context-title">
           <Container className="grid gap-6 lg:grid-cols-[0.55fr_1fr] lg:gap-12">
@@ -33,17 +34,17 @@ function Services() {
               <article data-motion-item className="grid gap-2 border-b border-cream/25 py-4 sm:grid-cols-[0.8fr_1fr] sm:gap-x-8 lg:grid-cols-[0.8fr_1fr_auto] lg:items-center">
                 <h3 className="font-display text-2xl leading-tight text-cream">Petit-déjeuner en entreprise</h3>
                 <p className="leading-7 text-cream/75">BenDjo propose un service de petit-déjeuner destiné aux entreprises.</p>
-                <a href="#petit-dejeuner" className="inline-flex min-h-11 items-center rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Découvrir l’offre</a>
+                <a href="#petit-dejeuner" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Découvrir le petit-déjeuner <ArrowRight size={17} weight="regular" aria-hidden="true" /></a>
               </article>
               <article data-motion-item className="grid gap-2 border-b border-cream/25 py-4 sm:grid-cols-[0.8fr_1fr] sm:gap-x-8 lg:grid-cols-[0.8fr_1fr_auto] lg:items-center">
                 <h3 className="font-display text-2xl leading-tight text-cream">Événement professionnel</h3>
                 <p className="leading-7 text-cream/75">BenDjo propose un service traiteur pour les événements professionnels.</p>
-                <a href="#traiteur-evenements" className="inline-flex min-h-11 items-center rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Découvrir l’offre</a>
+                <a href="#traiteur-evenements" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Découvrir le service traiteur <ArrowRight size={17} weight="regular" aria-hidden="true" /></a>
               </article>
               <article data-motion-item className="grid gap-2 border-b border-cream/25 py-3 sm:grid-cols-[0.8fr_1fr] sm:gap-x-8 lg:grid-cols-[0.8fr_1fr_auto] lg:items-center">
                 <h3 className="font-display text-xl leading-tight text-cream/85">Lancement de produit</h3>
                 <p className="leading-7 text-cream/75">Le service traiteur BenDjo est notamment proposé pour les événements de lancement de produit.</p>
-                <a href="/contact?type=lancement" className="inline-flex min-h-11 items-center rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Voir le contexte</a>
+                <Link to="/contact?type=lancement" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Présenter un lancement de produit <ArrowRight size={17} weight="regular" aria-hidden="true" /></Link>
               </article>
             </div>
           </Container>
@@ -64,7 +65,7 @@ function Services() {
                 <p className="type-lead text-pretty text-ink/80 sm:text-xl sm:leading-9">BenDjo propose un service de petit-déjeuner destiné aux entreprises, pour une réunion ou un moment d’équipe.</p>
                 <div className="mt-7 border-y border-leaf/20 py-5">
                   <p className="type-label text-ink/75">Contextes concernés</p>
-                  <p className="mt-3 text-lg font-semibold leading-7 text-leaf">Entreprise · Réunion · Moment d’équipe</p>
+                  <p className="mt-3 text-lg font-semibold leading-7 text-ink">Entreprise · Réunion · Moment d’équipe</p>
                 </div>
                 <p className="mt-7 max-w-xl leading-7 text-ink/70">Les modalités sont définies avec BenDjo selon le besoin de votre entreprise.</p>
                 <Link to="/contact?type=petit-dejeuner" className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Présenter votre besoin</Link>
@@ -113,7 +114,6 @@ function Services() {
               <div className="mt-7 border-y border-cream/25">
                 <p className="py-4 text-lg font-semibold leading-7 text-cream">Événement professionnel</p>
                 <p id="lancement-produit" className="scroll-mt-24 border-t border-cream/25 py-4 text-lg font-semibold leading-7 text-cream">Lancement de produit</p>
-                <p className="border-t border-cream/25 py-4 text-lg font-semibold leading-7 text-cream">Réception ou moment de marque</p>
               </div>
               <p className="mt-7 max-w-xl leading-7 text-cream/75">La prestation est définie avec BenDjo selon le besoin de votre entreprise.</p>
               <Link to="/contact?type=traiteur" className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-cream px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-cream/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:w-auto">Présenter votre besoin</Link>
@@ -155,8 +155,8 @@ function Services() {
 
               <ul className="text-ink">
                 <li className="border-b border-ink/20 pb-4">
-                  <span className="type-label block text-ink/65">En complément des prestations</span>
-                  <span className="mt-2 block font-display text-xl leading-snug text-leaf">Les infusions naturelles BenDjo</span>
+                  <span className="type-label block text-ink/75">En complément des prestations</span>
+                  <span className="mt-2 block font-display text-xl leading-snug text-ink">Les infusions naturelles BenDjo</span>
                 </li>
                 <li className="border-b border-ink/20 py-4 text-lg font-medium leading-7">L’accompagnement des entreprises</li>
                 <li className="border-b border-ink/20 py-4 text-lg font-medium leading-7">Un ancrage à Cotonou et Abomey-Calavi</li>
@@ -205,7 +205,7 @@ function Services() {
                  <p className="max-w-xl leading-7 text-ink/80">Indiquez les informations dont vous disposez pour orienter l’échange.</p>
                  <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
                    <Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto lg:w-full xl:w-auto">Présenter votre besoin</Link>
-                   <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md border border-ink/70 px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto lg:w-full xl:w-auto">Échanger sur WhatsApp</a>
+                   <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto lg:w-full xl:w-auto"><WhatsappLogo size={19} weight="fill" aria-hidden="true" />Échanger sur WhatsApp</a>
                  </div>
               </div>
             </div>

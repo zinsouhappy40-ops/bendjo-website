@@ -1,6 +1,7 @@
 import { Link, useSearchParams } from "react-router-dom";
 import ContactForm from "../components/features/ContactForm";
 import DocumentMeta from "../components/SEO/DocumentMeta";
+import { routeMetadata } from "../seo/metadata";
 import BrandIcon from "../components/ui/BrandIcon";
 import Container from "../components/ui/Container";
 import PageHero from "../components/sections/PageHero";
@@ -8,15 +9,18 @@ import serviceImage480 from "../assets/images/optimized/contact-hero-480.webp";
 import serviceImage1024 from "../assets/images/optimized/contact-hero-1024.webp";
 import { ArrowRight, EnvelopeSimple, Phone } from "@phosphor-icons/react";
 
+const serviceTypes = new Set(["petit-dejeuner", "traiteur", "lancement", "autre"]);
+
 function Contact() {
   const [searchParams] = useSearchParams();
-  const initialServiceType = searchParams.get("type") ?? "";
+  const requestedServiceType = searchParams.get("type");
+  const initialServiceType = requestedServiceType && serviceTypes.has(requestedServiceType) ? requestedServiceType : "";
 
   return (
     <>
-      <DocumentMeta title="Contactez BenDjo | Infusions et services en entreprise" description="Contactez BenDjo à Cotonou pour vos questions sur les infusions naturelles, le petit-déjeuner en entreprise et le service traiteur." />
+      <DocumentMeta {...routeMetadata.contact} />
       <div>
-          <PageHero id="contact-title" label="Contact" title="Un mot, une idée, un moment." description="Une question sur les infusions, un besoin pour votre entreprise ou un événement à préparer ? Écrivez à BenDjo." image={serviceImage1024} imageSrcSet={`${serviceImage480} 480w, ${serviceImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Une boîte d’infusion BenDjo, une tasse chaude et un carnet sur une table." imageWidth={1024} imageHeight={1024} labelItems={[{ label: "Parcours", value: "Particulier ou entreprise" }]} actions={<><a href="#contact-form-title" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Accéder au formulaire <ArrowRight size={18} weight="regular" aria-hidden="true" /></a><Link to="/products" className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-bendjo-sm px-2 py-2 text-sm font-semibold text-ink underline decoration-ink/35 underline-offset-4 transition-colors hover:decoration-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Choisir une infusion <ArrowRight size={17} weight="regular" aria-hidden="true" /></Link></>} />
+          <PageHero id="contact-title" label="Contact" title="Un mot, une idée, un moment." description="Une question sur les infusions, un besoin pour votre entreprise ou un événement à préparer ? Écrivez à BenDjo." image={serviceImage1024} imageSrcSet={`${serviceImage480} 480w, ${serviceImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Une boîte d’infusion BenDjo, une tasse chaude et un carnet sur une table." imageWidth={1024} imageHeight={1024} labelItems={[{ label: "Parcours", value: "Particulier ou entreprise" }]} actions={<><a href="#contact-form-title" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Accéder au formulaire <ArrowRight size={18} weight="regular" aria-hidden="true" /></a><Link to="/products" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Choisir une infusion <ArrowRight size={17} weight="regular" aria-hidden="true" /></Link></>} />
 
         <section className="bg-ink py-5 text-cream sm:py-6" aria-label="Choisir un parcours de contact">
           <Container className="grid gap-7 md:grid-cols-[1.2fr_0.8fr] md:gap-0">
@@ -54,8 +58,8 @@ function Contact() {
                 </div>
                 <p className="mt-2 max-w-xl leading-7 text-ink/80 sm:mt-3">Vous pouvez aussi joindre BenDjo par email ou par téléphone.</p>
                 <div className="mt-3 flex flex-col gap-1 text-sm sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-x-6">
-                   <a href="mailto:bendjobenin@gmail.com" className="inline-flex min-h-11 w-fit items-center gap-2 rounded-bendjo-sm font-semibold text-ink underline decoration-kraft decoration-2 underline-offset-4 hover:text-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf"><EnvelopeSimple size={18} weight="regular" aria-hidden="true" />bendjobenin@gmail.com</a>
-                   <a href="tel:+2290153148013" className="inline-flex min-h-11 w-fit items-center gap-2 rounded-bendjo-sm font-semibold text-ink underline decoration-kraft decoration-2 underline-offset-4 hover:text-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf"><Phone size={18} weight="regular" aria-hidden="true" />+229 01 53 14 80 13</a>
+                   <a href="mailto:bendjobenin@gmail.com" className="inline-flex min-h-11 w-fit items-center gap-2 rounded-bendjo-sm font-semibold text-ink underline decoration-kraft decoration-2 underline-offset-4 hover:text-ink/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf"><EnvelopeSimple size={18} weight="regular" aria-hidden="true" />bendjobenin@gmail.com</a>
+                   <a href="tel:+2290153148013" className="inline-flex min-h-11 w-fit items-center gap-2 rounded-bendjo-sm font-semibold text-ink underline decoration-kraft decoration-2 underline-offset-4 hover:text-ink/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf"><Phone size={18} weight="regular" aria-hidden="true" />+229 01 53 14 80 13</a>
                 </div>
               </aside>
             </div>

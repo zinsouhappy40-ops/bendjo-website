@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes, StaticRouter } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
 
@@ -9,9 +9,12 @@ import Services from "../pages/Services";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 
-function AppRouter() {
+interface AppRouterProps {
+  location?: string;
+}
+
+function RouteTree() {
   return (
-    <BrowserRouter>
       <Routes>
 
         <Route element={<MainLayout />}>
@@ -31,6 +34,21 @@ function AppRouter() {
         </Route>
 
       </Routes>
+  );
+}
+
+function AppRouter({ location }: AppRouterProps) {
+  if (location) {
+    return (
+      <StaticRouter location={location}>
+        <RouteTree />
+      </StaticRouter>
+    );
+  }
+
+  return (
+    <BrowserRouter>
+      <RouteTree />
     </BrowserRouter>
   );
 }

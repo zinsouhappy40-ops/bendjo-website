@@ -8,10 +8,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-ink text-cream hover:bg-ink/90 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-8px_rgb(75_127_82_/_0.45)]",
-  secondary: "bg-transparent text-leaf border border-leaf hover:bg-leaf/10 hover:-translate-y-0.5",
-  text: "bg-transparent text-leaf hover:text-leaf/70",
-  ink: "bg-ink text-cream hover:bg-ink/90 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-8px_rgb(75_127_82_/_0.45)]",
+  primary: "bg-ink text-cream hover:bg-ink/90 hover:-translate-y-0.5 hover:shadow-bendjo-action",
+  secondary: "border border-lemongrass bg-lemongrass text-ink hover:-translate-y-0.5 hover:underline",
+  text: "bg-transparent text-ink hover:text-ink/75",
+  ink: "bg-ink text-cream hover:bg-ink/90 hover:-translate-y-0.5 hover:shadow-bendjo-action",
 };
 
 function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {

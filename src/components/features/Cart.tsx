@@ -49,13 +49,13 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
 
   if (panel) {
     return (
-      <section id="cart-panel" className="absolute inset-x-3 top-[calc(100%+0.75rem)] z-50 overflow-hidden rounded-bendjo-md border border-ink/15 bg-ink p-4 text-cream shadow-[0_18px_55px_rgb(75_127_82_/_0.24)] sm:inset-x-auto sm:right-0 sm:w-[23rem] sm:p-5" role="dialog" aria-modal="false" aria-labelledby="cart-panel-title">
+      <section id="cart-panel" className="fixed inset-x-3 top-[calc(76px+0.75rem)] z-50 overflow-hidden rounded-bendjo-md border border-ink/15 bg-ink p-4 text-cream shadow-bendjo-cart sm:absolute sm:inset-x-auto sm:right-0 sm:top-[calc(100%+0.75rem)] sm:w-[23rem] sm:p-5" role="dialog" aria-modal="false" aria-labelledby="cart-panel-title">
         <div className="flex items-start justify-between gap-4 border-b border-cream/20 pb-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cream/60">Votre sélection</p>
             <h2 id="cart-panel-title" className="mt-1 font-display text-2xl leading-tight text-cream">{itemCount} article{itemCount > 1 ? "s" : ""}</h2>
           </div>
-          <button type="button" autoFocus className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-bendjo-sm border border-cream/35 text-xl text-cream transition-colors hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream" aria-label="Fermer la sélection" onClick={onClose}>
+          <button type="button" autoFocus className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-bendjo-sm border border-cream/40 text-xl text-cream transition-colors hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream" aria-label="Fermer la sélection" onClick={onClose}>
              <X size={20} weight="regular" aria-hidden="true" />
           </button>
         </div>
@@ -112,7 +112,7 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
 
   if (floating) {
     return (
-      <section id="selection" className="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-md rounded-bendjo-md border border-cream/15 bg-ink p-3 text-cream shadow-[0_18px_55px_rgb(75_127_82_/_0.24)] sm:inset-x-auto sm:bottom-6 sm:right-6 sm:w-[23rem] sm:max-w-none sm:p-4" aria-labelledby="cart-title">
+      <section id="selection" className="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-md rounded-bendjo-md border border-cream/15 bg-ink p-3 text-cream shadow-bendjo-cart sm:inset-x-auto sm:bottom-6 sm:right-6 sm:w-[23rem] sm:max-w-none sm:p-4" aria-labelledby="cart-title">
         <div className="flex items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
             <span className="inline-flex h-9 min-w-9 shrink-0 items-center justify-center rounded-full bg-cream px-2 text-sm font-semibold text-ink" aria-live="polite" aria-atomic="true">{itemCount}</span>

@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Config locale (chemins propres à la machine, ne pas partager)
+.claude/settings.local.json
+.impeccable/config.local.json
+
+# Ancien dépôt dupliqué — à supprimer manuellement, listé ici en filet de sécurité
+.git_disabled/

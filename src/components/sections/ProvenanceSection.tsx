@@ -3,6 +3,7 @@ import ProvenanceLabel from "../ui/ProvenanceLabel";
 import TextLink from "../ui/TextLink";
 import provenanceImage360 from "../../assets/images/optimized/home-provenance-360.webp";
 import provenanceImage520 from "../../assets/images/optimized/home-provenance-520.webp";
+import { ArrowRight } from "@phosphor-icons/react";
 
 function ProvenanceSection() {
   return (
@@ -26,7 +27,7 @@ function ProvenanceSection() {
               { label: "Fabrication", value: "Bénin" },
               { label: "Produit", value: "Infusions naturelles" },
             ]}
-            className="relative z-10 mx-4 -mt-5 grid-cols-3 lg:absolute lg:-bottom-7 lg:right-0 lg:mx-0 lg:min-w-[30rem]"
+            className="relative z-10 mx-4 -mt-5 grid-cols-3 lg:absolute lg:-bottom-7 lg:left-1/2 lg:mx-0 lg:min-w-[30rem] lg:-translate-x-1/2"
           />
         </figure>
 
@@ -39,7 +40,7 @@ function ProvenanceSection() {
             Une matière locale, une fabrication au Bénin et des infusions naturelles à découvrir.
           </p>
           <div className="mt-6 sm:mt-7">
-            <TextLink to="/about">Découvrir BenDjo</TextLink>
+            <TextLink to="/about" className="gap-2">Découvrir BenDjo <ArrowRight size={17} weight="regular" aria-hidden="true" /></TextLink>
           </div>
         </div>
       </Container>
