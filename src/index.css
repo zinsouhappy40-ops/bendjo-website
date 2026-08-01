@@ -3,7 +3,8 @@
 @theme {
   /* Couleurs de marque BenDjo — BRAND/DESIGN_SYSTEM.md */
   --color-leaf: #4B7F52;
-  --color-ink: #203B28;
+  /* Alias sémantique pour les usages historiques de texte et de surface. */
+  --color-ink: #4B7F52;
   --color-kraft: #C89B6B;
   --color-cream: #F5EFE6;
   --color-hibiscus: #D64545;
@@ -62,6 +63,137 @@ button,
   font-weight: 600;
 }
 
+/* Shared typographic roles preserve hierarchy across page-specific layouts. */
+.type-hero-title {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: 2.625rem;
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.type-section-title-narrow {
+  max-width: 13ch;
+}
+
+.type-section-title,
+.type-section-title-lg,
+.type-section-title-compact,
+.type-product-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.type-product-title-sm {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.type-product-title-long {
+  max-width: 11ch;
+}
+
+.type-product-title-home {
+  max-width: 14ch;
+}
+
+.type-section-title {
+  max-width: 14ch;
+  font-size: 2.25rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.type-section-title-lg {
+  max-width: 12ch;
+  font-size: 2.5rem;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.type-section-title-compact {
+  max-width: 16ch;
+  font-size: 2rem;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.type-product-title {
+  max-width: 12ch;
+  font-size: 2.625rem;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+
+.type-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.type-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+.type-body {
+  max-width: 65ch;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+.type-lead {
+  max-width: 60ch;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 2rem;
+}
+
+.type-action {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .type-hero-title { font-size: 3.25rem; line-height: 0.95; }
+  .type-section-title { font-size: 2.5rem; }
+  .type-section-title-lg { font-size: 2.75rem; }
+  .type-section-title-compact { font-size: 2.25rem; }
+  .type-product-title { font-size: 3rem; }
+  .type-product-title-sm { font-size: 2.5rem; }
+  .type-product-title-long { font-size: 2.625rem; }
+}
+
+@media (min-width: 1024px) {
+  .type-hero-title { font-size: 4.75rem; line-height: 0.94; letter-spacing: -0.03em; }
+  #services-title { max-width: 13ch; font-size: 4rem; line-height: 0.95; }
+  .type-section-title { font-size: 3.5rem; }
+  .type-section-title-lg { font-size: 3.75rem; }
+  .type-section-title-narrow { font-size: 3.25rem; }
+  .type-section-title-compact { font-size: 3rem; }
+  .type-product-title { font-size: 4.25rem; }
+  .type-product-title-sm { font-size: 2.75rem; }
+  .type-product-title-long { font-size: 3.75rem; }
+  .type-product-title-home { font-size: 3.5rem; }
+}
+
 :focus-visible {
   outline: 2px solid var(--color-leaf);
   outline-offset: 3px;
@@ -80,38 +212,82 @@ button,
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Micro-interactions — apparition douce au chargement, pas de librairie nécessaire */
-@keyframes bendjo-fade-up {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-up {
-  animation: bendjo-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+/* Motion progressive : le contenu reste visible si JavaScript ou IntersectionObserver manque. */
+.motion-ready .motion-reveal:not([data-motion-hero]) {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms var(--ease-bendjo), transform 500ms var(--ease-bendjo);
 }
 
-@supports (animation-timeline: view()) {
-  .reveal-on-scroll {
-    animation: bendjo-fade-up linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 35%;
+.motion-ready .motion-reveal.is-revealed:not([data-motion-hero]) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-ready [data-motion-hero].motion-reveal [data-motion-step] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 520ms var(--ease-bendjo), transform 520ms var(--ease-bendjo);
+}
+
+.motion-ready [data-motion-hero].is-revealed [data-motion-step] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-ready [data-motion-hero].is-revealed [data-motion-step]:nth-child(2) { transition-delay: 60ms; }
+.motion-ready [data-motion-hero].is-revealed [data-motion-step]:nth-child(3) { transition-delay: 120ms; }
+.motion-ready [data-motion-hero].is-revealed [data-motion-step]:nth-child(4) { transition-delay: 180ms; }
+.motion-ready [data-motion-hero].is-revealed figure[data-motion-step] { transition-delay: 240ms; }
+
+.motion-ready [data-motion-group].motion-reveal [data-motion-item] {
+  opacity: 0;
+  transition: opacity 450ms var(--ease-bendjo);
+}
+
+.motion-ready [data-motion-group].is-revealed [data-motion-item] {
+  opacity: 1;
+}
+
+.motion-ready [data-motion-group].is-revealed [data-motion-item]:nth-child(2) { transition-delay: 70ms; }
+.motion-ready [data-motion-group].is-revealed [data-motion-item]:nth-child(3) { transition-delay: 140ms; }
+.motion-ready [data-motion-group].is-revealed [data-motion-item]:nth-child(4) { transition-delay: 210ms; }
+
+main a,
+main button {
+  transition-duration: 200ms;
+  transition-timing-function: var(--ease-bendjo);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  main a:hover,
+  main button:hover:not(:disabled) {
+    transform: translateY(-2px);
   }
 
-  /* Parallax léger — les images dérivent très légèrement pendant la traversée du viewport */
-  @keyframes bendjo-parallax {
-    from { transform: translateY(-3%); }
-    to { transform: translateY(3%); }
+  main figure img {
+    transition: opacity 300ms var(--ease-bendjo), transform 400ms var(--ease-bendjo);
   }
-  .parallax-subtle {
-    animation: bendjo-parallax linear both;
-    animation-timeline: view();
-    animation-range: cover 0% cover 100%;
+
+  main figure:hover > img:not([style*="transform"]) {
+    transform: scale(1.01);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up,
-  .reveal-on-scroll,
-  .parallax-subtle {
-    animation: none;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .motion-reveal,
+  [data-motion-step],
+  [data-motion-item] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

@@ -1,6 +1,6 @@
-import hibiscusImage from "../assets/images/products/586569893_122161966664783112_866018836581068562_n.jpg";
-import basilImage from "../assets/images/products/637760295_122173934096783112_5011838352445723711_n.jpg";
-import lemongrassImage from "../assets/images/products/515492394_122145102872783112_1937735358128729147_n.jpg";
+import hibiscusImage from "../assets/images/optimized/product-hibiscus-thumb-320.webp";
+import basilImage from "../assets/images/optimized/product-basil-thumb-320.webp";
+import lemongrassImage from "../assets/images/optimized/product-citronnelle-thumb-320.webp";
 import type { Product } from "../types/Product";
 
 export const products: Product[] = [
@@ -9,7 +9,7 @@ export const products: Product[] = [
     name: "Infusion Hibiscus",
     format: "Boîte de 10 sachets",
     image: hibiscusImage,
-    alt: "Packaging réel de l’infusion Hibiscus BenDjo",
+    alt: "Composition éditoriale autour d’une boîte d’infusion Hibiscus BenDjo, de fleurs d’Hibiscus et d’une tasse d’infusion",
     price: 1500,
   },
   {

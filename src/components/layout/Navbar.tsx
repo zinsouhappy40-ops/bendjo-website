@@ -1,16 +1,34 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { List, ShoppingBagOpen, X } from "@phosphor-icons/react";
 import { navigationItems } from "../../data/navigation";
 import logo from "../../assets/images/logo/bendjo-logo.png.jpeg";
+import Cart from "../features/Cart";
+import { useCart } from "../../hooks/useCart";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const cartButtonRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
+  const { itemCount } = useCart();
 
   useEffect(() => {
     if (isMenuOpen) firstMenuLinkRef.current?.focus();
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape" && isCartOpen) {
+        setIsCartOpen(false);
+        cartButtonRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isCartOpen]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -26,7 +44,7 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-ink/10 bg-cream text-ink" aria-label="Navigation principale">
-      <div className="mx-auto grid min-h-[76px] w-full max-w-6xl grid-cols-[1fr_auto] items-center px-5 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
+      <div className="mx-auto grid min-h-[76px] w-full max-w-6xl grid-cols-[1fr_auto_auto] items-center gap-2 px-5 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-0 lg:px-8">
         <NavLink
           to="/"
           end
@@ -34,7 +52,7 @@ function Navbar() {
           onClick={() => setIsMenuOpen(false)}
         >
           <img src={logo} alt="" className="h-11 w-11 object-contain" width="44" height="44" />
-          <span className="font-display text-xl text-ink">BenDjo</span>
+          <span className="text-lg font-semibold tracking-[-0.01em] text-ink">BenDjo</span>
           <span className="sr-only">, accueil</span>
         </NavLink>
 
@@ -55,12 +73,27 @@ function Navbar() {
           ))}
         </div>
 
-        <NavLink
-          to="/products"
-          className="hidden min-h-11 items-center justify-self-end rounded-bendjo-md bg-ink px-5 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:inline-flex"
-        >
-          Choisir une infusion
-        </NavLink>
+         <div className="relative flex items-center justify-self-end gap-2 lg:gap-3">
+           <NavLink
+             to="/products"
+             className="hidden min-h-11 items-center rounded-bendjo-md bg-ink px-5 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:inline-flex"
+           >
+             Choisir une infusion
+           </NavLink>
+           <button
+             ref={cartButtonRef}
+             type="button"
+             className="relative inline-flex min-h-11 min-w-11 items-center justify-center rounded-bendjo-sm text-ink transition-colors hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf"
+             aria-label={itemCount > 0 ? `Ouvrir la sélection, ${itemCount} article${itemCount > 1 ? "s" : ""}` : "Ouvrir la sélection, sélection vide"}
+             aria-expanded={isCartOpen}
+             aria-controls="cart-panel"
+             onClick={() => setIsCartOpen((open) => !open)}
+           >
+              <ShoppingBagOpen size={23} weight="regular" aria-hidden="true" />
+             {itemCount > 0 && <span className="absolute right-0 top-0 inline-flex min-h-5 min-w-5 -translate-y-1/4 translate-x-1/4 items-center justify-center rounded-full bg-ink px-1 text-[0.68rem] font-semibold leading-none text-cream" aria-hidden="true">{itemCount}</span>}
+           </button>
+           <Cart panel panelOpen={isCartOpen} onClose={() => { setIsCartOpen(false); cartButtonRef.current?.focus(); }} />
+         </div>
 
         <button
           ref={menuButtonRef}
@@ -71,8 +104,7 @@ function Navbar() {
           aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           onClick={() => setIsMenuOpen((open) => !open)}
         >
-          <span className={`h-px w-5 bg-current transition-transform duration-300 ${isMenuOpen ? "translate-y-[3.5px] rotate-45" : ""}`} aria-hidden="true" />
-          <span className={`h-px w-5 bg-current transition-transform duration-300 ${isMenuOpen ? "-translate-y-[3.5px] -rotate-45" : ""}`} aria-hidden="true" />
+           {isMenuOpen ? <X size={22} weight="regular" aria-hidden="true" /> : <List size={23} weight="regular" aria-hidden="true" />}
         </button>
       </div>
 
@@ -93,7 +125,7 @@ function Navbar() {
                 end={to === "/"}
                 tabIndex={isMenuOpen ? 0 : -1}
                 className={({ isActive }) =>
-                  `flex min-h-12 items-center border-b border-leaf/10 font-display text-2xl transition-[color,padding] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf ${
+                  `flex min-h-12 items-center border-b border-leaf/10 text-lg font-semibold transition-[color,padding] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf ${
                      isActive ? "pl-2 text-ink" : "text-ink/70 hover:pl-2 hover:text-ink"
                   }`
                 }

@@ -1,6 +1,7 @@
 import { buildWhatsAppMessage } from "../../utils/buildWhatsAppMessage";
 import type { CartItem } from "../../types/Cart";
 import Button from "../ui/Button";
+import { ArrowUpRight } from "@phosphor-icons/react";
 
 const whatsappNumber = "2290162014161";
 
@@ -21,7 +22,7 @@ function WhatsAppOrderCTA({ items }: WhatsAppOrderCTAProps) {
   return (
     <div>
       <Button type="button" variant="ink" className="w-full" disabled={isUnavailable} onClick={handleOrder}>
-        Commander via WhatsApp
+        Commander via WhatsApp <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
       </Button>
       <p className="mt-3 text-xs leading-5 text-ink/70">
         Votre sélection sera envoyée à BenDjo dans un message WhatsApp.

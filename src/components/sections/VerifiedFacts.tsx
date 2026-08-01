@@ -1,22 +1,40 @@
 import Container from "../ui/Container";
 
 const facts = [
-  "Fabriqué au Bénin",
-  "Ingrédients locaux",
-  "Boîte de 10 sachets",
-  "1 500 FCFA par boîte",
-  "Commande sur WhatsApp",
+  {
+    label: "Ancrage",
+    content: "Fabriqué au Bénin",
+  },
+  {
+    label: "Produits",
+    content: "Infusions naturelles à base d’ingrédients locaux",
+  },
+  {
+    label: "Entreprises",
+    content: "Services de petit-déjeuner et de restauration",
+  },
+  {
+    label: "Événements",
+    content: "Service traiteur pour les événements professionnels",
+  },
 ];
 
 function VerifiedFacts() {
   return (
-    <section className="bg-cream py-16 sm:py-20" aria-labelledby="verified-facts-title">
+    <section className="bg-cream py-8 sm:py-10 lg:py-12" aria-labelledby="verified-facts-title">
       <Container>
-        <h2 id="verified-facts-title" className="font-display text-3xl text-ink">Repères vérifiés</h2>
-        <ul className="mt-8 grid grid-cols-2 border-y border-ink/20 lg:grid-cols-5">
-          {facts.map((fact) => (
-            <li key={fact} className="flex min-h-20 items-center border-b border-ink/15 px-3 py-4 text-sm font-semibold leading-6 text-ink even:border-l last:col-span-2 last:border-b-0 lg:min-h-24 lg:col-span-1 lg:border-b-0 lg:border-l lg:px-5 lg:first:border-l-0 lg:last:col-span-1">
-              {fact}
+        <div className="border-b border-ink/20 pb-3">
+          <h2 id="verified-facts-title" className="type-section-title-compact text-ink">Repères vérifiés</h2>
+        </div>
+        <ul data-motion-group className="mt-5 grid grid-cols-1 border-b border-ink/15 sm:mt-6 sm:grid-cols-2">
+          {facts.map((fact, index) => (
+            <li
+              data-motion-item
+              key={fact.label}
+              className={`py-3.5 sm:px-6 sm:py-4 ${index < facts.length - 1 ? "border-b border-ink/15" : ""} ${index === 2 ? "sm:border-b-0" : ""} ${index % 2 === 0 ? "sm:border-r sm:border-ink/15" : ""}`}
+            >
+              <p className="type-label text-ink/65">{fact.label}</p>
+              <p className="mt-1.5 max-w-[34ch] text-base leading-6 text-ink sm:text-lg sm:leading-7">{fact.content}</p>
             </li>
           ))}
         </ul>
