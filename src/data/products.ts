@@ -1,6 +1,6 @@
-import hibiscusImage from "../assets/images/optimized/product-hibiscus-thumb-320.webp";
-import basilImage from "../assets/images/optimized/product-basil-thumb-320.webp";
-import lemongrassImage from "../assets/images/optimized/product-citronnelle-thumb-320.webp";
+import hibiscusImage from "../assets/images/optimized/packaging-hibiscus-480.webp";
+import basilImage from "../assets/images/optimized/packaging-basilic-480.webp";
+import lemongrassImage from "../assets/images/optimized/packaging-citronnelle-480.webp";
 import type { Product } from "../types/Product";
 
 export const products: Product[] = [
@@ -17,7 +17,7 @@ export const products: Product[] = [
     name: "Infusion Basilic",
     format: "Boîte de 10 sachets",
     image: basilImage,
-    alt: "Packaging réel des infusions BenDjo, dont l’infusion Basilic",
+    alt: "Composition éditoriale autour d’une boîte d’infusion Basilic BenDjo et de feuilles fraîches",
     price: 1500,
   },
   {
@@ -25,7 +25,7 @@ export const products: Product[] = [
     name: "Infusion Citronnelle & Clou de girofle",
     format: "Boîte de 10 sachets",
     image: lemongrassImage,
-    alt: "Packaging réel de l’infusion Citronnelle et clou de girofle BenDjo",
+    alt: "Composition éditoriale autour d’une boîte d’infusion Citronnelle et clou de girofle BenDjo",
     price: 1500,
   },
 ];

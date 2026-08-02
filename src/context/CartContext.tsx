@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState, type Dispatch, type ReactNode } from "react";
 import type { CartAction, CartState } from "../types/Cart";
 import { CartContext } from "./CartContextDefinition";
+import { products } from "../data/products";
 
 const initialState: CartState = { items: [] };
 
@@ -8,6 +9,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
     case "add": {
       const existingItem = state.items.find(({ product }) => product.id === action.product.id);
+      const cartProduct = products.find(({ id }) => id === action.product.id) ?? action.product;
 
       if (existingItem) {
         return {
@@ -19,7 +21,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
         };
       }
 
-      return { items: [...state.items, { product: action.product, quantity: 1 }] };
+      return { items: [...state.items, { product: cartProduct, quantity: 1 }] };
     }
     case "increase":
       return {
