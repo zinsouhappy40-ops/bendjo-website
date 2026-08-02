@@ -1,5 +1,5 @@
 import { renderToString } from "react-dom/server";
-import App from "./App";
+import ServerApp from "./ServerApp";
 import { getSiteUrl, routeMetadata, type RouteMetadata } from "./seo/metadata";
 
 const metadataByPath = new Map<string, RouteMetadata>([
@@ -11,7 +11,7 @@ const metadataByPath = new Map<string, RouteMetadata>([
 ]);
 
 export function render(url: string) {
-  return renderToString(<App location={url} />);
+  return renderToString(<ServerApp location={url} />);
 }
 
 export function getMetadata(pathname: string) {

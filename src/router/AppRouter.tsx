@@ -1,17 +1,14 @@
-import { BrowserRouter, Route, Routes, StaticRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
 
 import Home from "../pages/Home";
-import About from "../pages/About";
-import Products from "../pages/Products";
-import Services from "../pages/Services";
-import Contact from "../pages/Contact";
-import NotFound from "../pages/NotFound";
-
-interface AppRouterProps {
-  location?: string;
-}
+const About = lazy(() => import("../pages/About"));
+const Products = lazy(() => import("../pages/Products"));
+const Services = lazy(() => import("../pages/Services"));
+const Contact = lazy(() => import("../pages/Contact"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 function RouteTree() {
   return (
@@ -21,15 +18,15 @@ function RouteTree() {
 
           <Route path="/" element={<Home />} />
 
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<Suspense fallback={null}><About /></Suspense>} />
 
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<Suspense fallback={null}><Products /></Suspense>} />
 
-          <Route path="/services" element={<Services />} />
+          <Route path="/services" element={<Suspense fallback={null}><Services /></Suspense>} />
 
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Suspense fallback={null}><Contact /></Suspense>} />
 
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
 
         </Route>
 
@@ -37,15 +34,7 @@ function RouteTree() {
   );
 }
 
-function AppRouter({ location }: AppRouterProps) {
-  if (location) {
-    return (
-      <StaticRouter location={location}>
-        <RouteTree />
-      </StaticRouter>
-    );
-  }
-
+function AppRouter() {
   return (
     <BrowserRouter>
       <RouteTree />
