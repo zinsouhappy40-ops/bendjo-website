@@ -53,7 +53,6 @@ const infusionDetails = [
     story: "Le basilic infusé libère un parfum doux et herbacé, cultivé et séché localement. Une infusion apaisante, pour ralentir entre deux rendez-vous.",
     tone: "basil" as const,
     layout: "feature" as const,
-    contentFirst: true,
     packagingWidth: 768,
     packagingHeight: 768,
     packagingImage: basilPackagingImage768,

@@ -26,7 +26,6 @@ interface InfusionStoryProps {
   materialWidth: number;
   materialHeight: number;
   materialPosition: string;
-  contentFirst?: boolean;
   sectionClassName?: string;
   featureClassName?: string;
   informationClassName?: string;
@@ -120,7 +119,7 @@ function MaterialImage({ src, srcSet, alt, width, height, position, className = 
 }
 
 function InfusionStory(props: InfusionStoryProps) {
-  const { product, tone, layout, packagingWidth, packagingHeight, packagingImage, packagingSrcSet, packagingAlt, packagingPosition, packagingScale, packagingOrigin, materialImage, materialSrcSet, materialAlt, materialWidth, materialHeight, materialPosition, contentFirst = false, sectionClassName = "", featureClassName = "", informationClassName = "", packagingClassName = "", materialClassName = "" } = props;
+  const { product, tone, layout, packagingWidth, packagingHeight, packagingImage, packagingSrcSet, packagingAlt, packagingPosition, packagingScale, packagingOrigin, materialImage, materialSrcSet, materialAlt, materialWidth, materialHeight, materialPosition, sectionClassName = "", featureClassName = "", informationClassName = "", packagingClassName = "", materialClassName = "" } = props;
   const isBasil = tone === "basil";
   const isLemongrass = tone === "lemongrass";
   const isHibiscus = tone === "hibiscus";
@@ -129,7 +128,7 @@ function InfusionStory(props: InfusionStoryProps) {
     return (
        <section id={product.id} className={`${toneStyles[tone].surface} py-12 ${isHibiscus ? "border-t border-leaf/10 sm:py-20 lg:py-24" : isLemongrass ? "border-y border-lemongrass/25 sm:py-12 lg:py-14" : "sm:py-16 lg:py-20"} ${isBasil ? "border-y border-basil/20" : ""} ${sectionClassName}`} aria-labelledby={`${product.id}-title`}>
            <div className={`mx-auto grid w-full max-w-6xl gap-7 px-5 sm:px-6 md:grid-cols-12 md:items-start md:gap-8 lg:gap-14 lg:px-8 ${isLemongrass ? "md:items-center" : ""}`}>
-             <div className={`grid gap-4 sm:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)] md:col-span-7 md:min-h-[22rem] lg:min-h-[26rem] ${contentFirst ? "order-2" : ""} ${isLemongrass ? "sm:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] sm:gap-3 md:gap-4 lg:gap-5" : ""} ${featureClassName}`}>
+             <div className={`grid gap-4 sm:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)] md:col-span-7 md:min-h-[22rem] lg:min-h-[26rem] ${isLemongrass ? "sm:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] sm:gap-3 md:gap-4 lg:gap-5" : ""} ${featureClassName}`}>
                <figure className={`h-full overflow-hidden rounded-bendjo-md bg-kraft/15 shadow-bendjo-image ${packagingClassName}`}>
                    <PackagingImage src={packagingImage} srcSet={packagingSrcSet} alt={packagingAlt} width={packagingWidth} height={packagingHeight} position={isLemongrass ? "center 42%" : packagingPosition} scale={packagingScale} origin={packagingOrigin} className={`aspect-[5/4] h-full sm:aspect-[4/3] ${isLemongrass ? "sm:aspect-[16/10]" : ""}`} />
               </figure>
@@ -137,7 +136,7 @@ function InfusionStory(props: InfusionStoryProps) {
                   <MaterialImage src={materialImage} srcSet={materialSrcSet} alt={isHibiscus ? "Fleurs d’hibiscus séchées visibles parmi d’autres matières végétales" : isLemongrass ? "Tiges de citronnelle fraîches, photographiées avec des feuilles vertes en arrière-plan" : materialAlt} width={materialWidth} height={materialHeight} position={isLemongrass ? "center 68%" : materialPosition} className={`aspect-[4/3] h-full sm:aspect-[4/3] ${isLemongrass ? "sm:aspect-[4/3]" : ""}`} />
                </figure>
           </div>
-          <div className={`${isHibiscus ? "md:col-span-5 md:pl-2 lg:pl-3" : "md:col-span-5"} ${contentFirst ? "order-1" : ""} ${isBasil ? "md:pr-2 lg:pl-3" : ""} ${informationClassName}`}>
+          <div className={`${isHibiscus ? "md:col-span-5 md:pl-2 lg:pl-3" : "md:col-span-5"} ${isBasil ? "md:pr-2 lg:pl-3" : ""} ${informationClassName}`}>
             <ProductInformation {...props} />
           </div>
         </div>
