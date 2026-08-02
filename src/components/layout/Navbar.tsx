@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { List, ShoppingBagOpen, X } from "@phosphor-icons/react";
 import { navigationItems } from "../../data/navigation";
-import logo from "../../assets/images/logo/bendjo-logo.png.jpeg";
+import logo from "../../assets/images/logo/bendjo-logo-96.jpeg";
 import Cart from "../features/Cart";
 import { useCart } from "../../hooks/useCart";
 

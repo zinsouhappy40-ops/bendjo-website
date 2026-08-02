@@ -13,6 +13,8 @@ interface PageHeroProps {
   actions: ReactNode;
   image: string;
   imageSrcSet?: string;
+  imageAvif?: string;
+  imageAvifSrcSet?: string;
   imageSizes?: string;
   imageAlt: string;
   imageWidth: number;
@@ -23,7 +25,7 @@ interface PageHeroProps {
   labelItems?: Array<{ label: string; value: string }>;
 }
 
-function PageHero({ id, tone = "cream", label, title, description, actions, image, imageSrcSet, imageSizes, imageAlt, imageWidth, imageHeight, imagePosition = "center", imageFit = "cover", imageScale = 1, labelItems }: PageHeroProps) {
+function PageHero({ id, tone = "cream", label, title, description, actions, image, imageSrcSet, imageAvif, imageAvifSrcSet, imageSizes, imageAlt, imageWidth, imageHeight, imagePosition = "center", imageFit = "cover", imageScale = 1, labelItems }: PageHeroProps) {
   const isInk = tone === "ink";
   const surface = isInk ? "bg-ink text-cream" : "bg-cream text-ink";
   const mutedText = isInk ? "text-cream/80" : "text-ink/80";
@@ -49,8 +51,12 @@ function PageHero({ id, tone = "cream", label, title, description, actions, imag
             </div>
           </div>
           <figure data-motion-step className={`relative overflow-hidden rounded-bendjo-md bg-kraft/15 shadow-bendjo-image ${imageFit === "contain" ? "" : "aspect-[4/3] sm:aspect-[16/9] lg:aspect-auto lg:h-full"}`}>
-          <img src={image} srcSet={imageSrcSet} sizes={imageSizes} alt={imageAlt} className={imageFit === "contain" ? "relative h-auto w-full object-contain" : "absolute inset-0 h-full w-full object-cover"} style={{ objectPosition: imagePosition, transform: `scale(${imageScale})` }} width={imageWidth} height={imageHeight} loading="eager" fetchPriority="high" decoding="async" />
-          {labelItems && <ProvenanceLabel items={labelItems} className={`absolute bottom-4 left-4 right-4 ${labelItems.length === 1 ? "grid-cols-1" : "grid-cols-3"} sm:bottom-6 sm:left-6 sm:right-auto lg:bottom-8 lg:left-0`} />}
+            <picture>
+              {imageAvifSrcSet && <source type="image/avif" srcSet={imageAvifSrcSet} sizes={imageSizes} />}
+              {imageSrcSet && <source type="image/webp" srcSet={imageSrcSet} sizes={imageSizes} />}
+              <img src={imageAvif ?? image} srcSet={imageAvifSrcSet ?? imageSrcSet} sizes={imageSizes} alt={imageAlt} className={imageFit === "contain" ? "relative h-auto w-full object-contain" : "absolute inset-0 h-full w-full object-cover"} style={{ objectPosition: imagePosition, transform: `scale(${imageScale})` }} width={imageWidth} height={imageHeight} loading="eager" fetchPriority="high" decoding="async" />
+            </picture>
+            {labelItems && <ProvenanceLabel items={labelItems} className={`absolute bottom-4 left-4 right-4 ${labelItems.length === 1 ? "grid-cols-1" : "grid-cols-3"} sm:bottom-6 sm:left-6 sm:right-auto lg:bottom-8 lg:left-0`} />}
           </figure>
         </div>
       </Container>

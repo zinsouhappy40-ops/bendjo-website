@@ -4,7 +4,12 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
-const template = await readFile(path.join(dist, "index.html"), "utf8");
+let template = await readFile(path.join(dist, "index.html"), "utf8");
+const stylesheet = template.match(/<link rel="stylesheet" crossorigin href="([^"]+\.css)">/);
+if (stylesheet) {
+  const css = await readFile(path.join(dist, stylesheet[1].replace(/^\//, "")), "utf8");
+  template = template.replace(stylesheet[0], `<style data-critical-css>${css}</style>`);
+}
 const serverEntry = path.join(dist, "server", "entry-server.js");
 const { getMetadata, getSiteUrl, render } = await import(`${pathToFileURL(serverEntry).href}?t=${Date.now()}`);
 

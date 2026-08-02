@@ -4,17 +4,20 @@ import HomeProductRow from "./HomeProductRow";
 import { products } from "../../data/products";
 import { useCart } from "../../hooks/useCart";
 import hibiscusPackaging480 from "../../assets/images/optimized/home-hibiscus-480.webp";
+import hibiscusPackaging768 from "../../assets/images/optimized/home-hibiscus-768.webp";
 import hibiscusPackaging1024 from "../../assets/images/optimized/home-hibiscus-1024.webp";
 import basilPackaging480 from "../../assets/images/optimized/home-basilic-480.webp";
+import basilPackaging768 from "../../assets/images/optimized/home-basilic-768.webp";
 import basilPackaging1024 from "../../assets/images/optimized/home-basilic-1024.webp";
 import citronnellePackaging480 from "../../assets/images/optimized/home-citronnelle-480.webp";
+import citronnellePackaging768 from "../../assets/images/optimized/home-citronnelle-768.webp";
 import citronnellePackaging1024 from "../../assets/images/optimized/home-citronnelle-1024.webp";
 import { ArrowRight } from "@phosphor-icons/react";
 
 const homeProducts = [
   {
     product: { ...products[0], image: hibiscusPackaging1024, alt: "Composition éditoriale autour d’une boîte d’infusion Hibiscus BenDjo, de fleurs d’Hibiscus et d’une tasse d’infusion" },
-    imageSrcSet: `${hibiscusPackaging480} 480w, ${hibiscusPackaging1024} 1024w`,
+    imageSrcSet: `${hibiscusPackaging480} 480w, ${hibiscusPackaging768} 768w, ${hibiscusPackaging1024} 1024w`,
     profile: "Fruité et rafraîchissant",
     tone: "hibiscus" as const,
     imagePosition: "center",
@@ -23,7 +26,7 @@ const homeProducts = [
   },
   {
     product: { ...products[1], image: basilPackaging1024, alt: "Composition éditoriale autour d’une boîte d’infusion Basilic BenDjo, de feuilles de basilic et d’une tasse d’infusion" },
-    imageSrcSet: `${basilPackaging480} 480w, ${basilPackaging1024} 1024w`,
+    imageSrcSet: `${basilPackaging480} 480w, ${basilPackaging768} 768w, ${basilPackaging1024} 1024w`,
     profile: "Doux et aromatique",
     tone: "basil" as const,
     imagePosition: "center",
@@ -32,7 +35,7 @@ const homeProducts = [
   },
   {
     product: { ...products[2], image: citronnellePackaging1024, alt: "Composition éditoriale autour d’une boîte d’infusion Citronnelle & Clou de girofle BenDjo, de citronnelle et d’une tasse d’infusion" },
-    imageSrcSet: `${citronnellePackaging480} 480w, ${citronnellePackaging1024} 1024w`,
+    imageSrcSet: `${citronnellePackaging480} 480w, ${citronnellePackaging768} 768w, ${citronnellePackaging1024} 1024w`,
     profile: "Végétal et épicé",
     tone: "lemongrass" as const,
     imagePosition: "center",
