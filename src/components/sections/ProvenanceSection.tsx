@@ -32,11 +32,11 @@ function ProvenanceSection() {
         </figure>
 
         <div className="min-w-0">
-          <p className="type-kicker text-ink/75">Provenance BenDjo</p>
-          <h2 id="provenance-title" className="type-section-title-lg mt-3 text-ink">
+          <p className="type-kicker text-leaf/75">Provenance BenDjo</p>
+          <h2 id="provenance-title" className="type-section-title-lg mt-3 text-leaf">
             Des infusions naturelles fabriquées au Bénin à partir d’ingrédients locaux.
           </h2>
-          <p className="type-body mt-5 text-pretty text-ink/80 sm:mt-6 sm:text-lg sm:leading-8">
+          <p className="type-body mt-5 text-pretty text-leaf/80 sm:mt-6 sm:text-lg sm:leading-8">
             Une matière locale, une fabrication au Bénin et des infusions naturelles à découvrir.
           </p>
           <div className="mt-6 sm:mt-7">

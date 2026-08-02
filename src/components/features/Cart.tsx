@@ -49,7 +49,7 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
 
   if (panel) {
     return (
-      <section id="cart-panel" className="fixed inset-x-3 top-[calc(76px+0.75rem)] z-50 overflow-hidden rounded-bendjo-md border border-ink/15 bg-ink p-4 text-cream shadow-bendjo-cart sm:absolute sm:inset-x-auto sm:right-0 sm:top-[calc(100%+0.75rem)] sm:w-[23rem] sm:p-5" role="dialog" aria-modal="false" aria-labelledby="cart-panel-title">
+      <section id="cart-panel" className="fixed inset-x-3 top-[calc(76px+0.75rem)] z-50 overflow-hidden rounded-bendjo-md border border-leaf/15 bg-leaf p-4 text-cream shadow-bendjo-cart sm:absolute sm:inset-x-auto sm:right-0 sm:top-[calc(100%+0.75rem)] sm:w-[23rem] sm:p-5" role="dialog" aria-modal="false" aria-labelledby="cart-panel-title">
         <div className="flex items-start justify-between gap-4 border-b border-cream/20 pb-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cream/60">Votre sélection</p>
@@ -89,7 +89,7 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
                 <p className="font-display text-2xl text-cream">{subtotal.toLocaleString("fr-FR")} FCFA</p>
               </div>
               <p className="mt-1 text-xs text-cream/65">Chaque boîte contient 10 sachets.</p>
-              <div className="mt-3 [&_button]:!bg-cream [&_button]:!text-ink [&_button]:hover:!bg-cream/90 [&_p]:!text-cream/70">
+              <div className="mt-3 [&_button]:!bg-cream [&_button]:!text-leaf [&_button]:hover:!bg-cream/90 [&_p]:!text-cream/70">
                 <WhatsAppOrderCTA items={state.items} />
               </div>
             </div>
@@ -102,7 +102,7 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
   if (state.items.length === 0) {
     return (
       <section className="mt-20" aria-labelledby="cart-title">
-        <h2 id="cart-title" className="font-display text-3xl text-ink">Votre sélection</h2>
+        <h2 id="cart-title" className="font-display text-3xl text-leaf">Votre sélection</h2>
         <div className="mt-6">
           <EmptyState title="Votre panier est vide." description="Ajoutez une infusion pour préparer votre sélection." />
         </div>
@@ -112,10 +112,10 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
 
   if (floating) {
     return (
-      <section id="selection" className="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-md rounded-bendjo-md border border-cream/15 bg-ink p-3 text-cream shadow-bendjo-cart sm:inset-x-auto sm:bottom-6 sm:right-6 sm:w-[23rem] sm:max-w-none sm:p-4" aria-labelledby="cart-title">
+      <section id="selection" className="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-md rounded-bendjo-md border border-cream/15 bg-leaf p-3 text-cream shadow-bendjo-cart sm:inset-x-auto sm:bottom-6 sm:right-6 sm:w-[23rem] sm:max-w-none sm:p-4" aria-labelledby="cart-title">
         <div className="flex items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
-            <span className="inline-flex h-9 min-w-9 shrink-0 items-center justify-center rounded-full bg-cream px-2 text-sm font-semibold text-ink" aria-live="polite" aria-atomic="true">{itemCount}</span>
+            <span className="inline-flex h-9 min-w-9 shrink-0 items-center justify-center rounded-full bg-cream px-2 text-sm font-semibold text-leaf" aria-live="polite" aria-atomic="true">{itemCount}</span>
             <div className="min-w-0">
               <h2 id="cart-title" className="font-display text-xl leading-tight text-cream">Votre sélection</h2>
               <p className="mt-0.5 truncate text-xs text-cream/75">{subtotal.toLocaleString("fr-FR")} FCFA · {itemCount} article{itemCount > 1 ? "s" : ""}</p>
@@ -151,7 +151,7 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
               <p className="font-display text-2xl text-cream">{subtotal.toLocaleString("fr-FR")} FCFA</p>
             </div>
             <p className="mt-1 text-xs text-cream/65">Chaque boîte contient 10 sachets.</p>
-            <div className="mt-3 [&_button]:!bg-cream [&_button]:!text-ink [&_button]:hover:!bg-cream/90 [&_p]:!text-cream/70">
+            <div className="mt-3 [&_button]:!bg-cream [&_button]:!text-leaf [&_button]:hover:!bg-cream/90 [&_p]:!text-cream/70">
               <WhatsAppOrderCTA items={state.items} />
             </div>
           </div>
@@ -161,14 +161,14 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
   }
 
   return (
-    <section className="mt-8 grid gap-10 border-t border-ink/15 pt-8 sm:mt-12 sm:pt-10 lg:grid-cols-[1fr_0.7fr] lg:gap-20" aria-labelledby="cart-title">
+    <section className="mt-8 grid gap-10 border-t border-leaf/15 pt-8 sm:mt-12 sm:pt-10 lg:grid-cols-[1fr_0.7fr] lg:gap-20" aria-labelledby="cart-title">
       <div>
         <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
           <div>
-            <h2 id="cart-title" className="font-display text-3xl text-ink">Votre sélection</h2>
-            <p className="mt-1 text-sm text-ink/75">{itemCount} article{itemCount > 1 ? "s" : ""}</p>
+            <h2 id="cart-title" className="font-display text-3xl text-leaf">Votre sélection</h2>
+            <p className="mt-1 text-sm text-leaf/75">{itemCount} article{itemCount > 1 ? "s" : ""}</p>
           </div>
-          <button type="button" className="min-h-11 rounded-bendjo-sm text-sm font-semibold text-ink underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf sm:px-3" onClick={handleClear}>
+          <button type="button" className="min-h-11 rounded-bendjo-sm text-sm font-semibold text-leaf underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf sm:px-3" onClick={handleClear}>
             Vider la sélection
           </button>
         </div>
@@ -185,12 +185,12 @@ function Cart({ floating = false, panel = false, panelOpen = false, onClose }: C
         </ul>
       </div>
       <aside className="self-start rounded-bendjo-md bg-kraft/15 p-6">
-        <h3 className="font-display text-2xl text-ink">Récapitulatif</h3>
-        <div className="mt-4 flex items-baseline justify-between border-t border-ink/15 pt-4">
-          <p className="text-sm text-ink/75">Sous-total</p>
-          <p className="font-display text-2xl text-ink">{subtotal.toLocaleString("fr-FR")} FCFA</p>
+        <h3 className="font-display text-2xl text-leaf">Récapitulatif</h3>
+        <div className="mt-4 flex items-baseline justify-between border-t border-leaf/15 pt-4">
+          <p className="text-sm text-leaf/75">Sous-total</p>
+          <p className="font-display text-2xl text-leaf">{subtotal.toLocaleString("fr-FR")} FCFA</p>
         </div>
-        <p className="mt-2 text-xs text-ink/70">Chaque boîte contient 10 sachets.</p>
+        <p className="mt-2 text-xs text-leaf/70">Chaque boîte contient 10 sachets.</p>
         <div className="mt-6">
           <WhatsAppOrderCTA items={state.items} />
         </div>

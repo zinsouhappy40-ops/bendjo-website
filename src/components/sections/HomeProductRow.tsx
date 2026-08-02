@@ -57,7 +57,7 @@ function HomeProductRow({ product, profile, tone, imagePosition = "center", imag
           </div>
         </dl>
         <div className="mt-6 flex flex-col items-start gap-3 sm:mt-7 sm:flex-row sm:items-center">
-          <Button type="button" variant="primary" className="min-h-11 w-full border border-cream/40 !bg-ink !text-cream transition-[background-color,border-color,box-shadow,transform] duration-200 hover:!bg-ink/80 hover:-translate-y-0.5 hover:border-cream/70 hover:shadow-bendjo-action-inverse focus-visible:!ring-cream focus-visible:!ring-offset-ink sm:w-auto" onClick={() => onAdd(product)} aria-label={quantity > 0 ? `${product.name} ajoutée à ma sélection` : `Ajouter ${product.name} à ma sélection`}>
+          <Button type="button" variant="primary" className="min-h-11 w-full border border-cream/40 !bg-leaf !text-cream transition-[background-color,border-color,box-shadow,transform] duration-200 hover:!bg-leaf/80 hover:-translate-y-0.5 hover:border-cream/70 hover:shadow-bendjo-action-inverse focus-visible:!ring-cream focus-visible:!ring-offset-leaf sm:w-auto" onClick={() => onAdd(product)} aria-label={quantity > 0 ? `${product.name} ajoutée à ma sélection` : `Ajouter ${product.name} à ma sélection`}>
             <ShoppingBagOpen size={19} weight="regular" aria-hidden="true" />
             {quantity > 0 ? "Ajoutée à ma sélection" : "Ajouter à ma sélection"}
           </Button>

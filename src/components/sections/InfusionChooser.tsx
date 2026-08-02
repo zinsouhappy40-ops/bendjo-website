@@ -48,7 +48,7 @@ function InfusionChooser() {
   const { state, dispatch } = useCart();
 
   return (
-    <section id="infusions" className="bg-ink py-16 text-cream sm:py-20 lg:py-24" aria-labelledby="infusions-title">
+    <section id="infusions" className="bg-leaf py-16 text-cream sm:py-20 lg:py-24" aria-labelledby="infusions-title">
       <Container>
         <div className="grid gap-5 border-b border-cream/25 pb-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16">
           <div>

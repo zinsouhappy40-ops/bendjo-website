@@ -67,7 +67,7 @@ function Navbar() {
   }, [isCartOpen, isMenuOpen]);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-ink/10 bg-cream text-ink" aria-label="Navigation principale">
+    <nav className="sticky top-0 z-50 border-b border-leaf/10 bg-cream text-leaf" aria-label="Navigation principale">
       <div className="mx-auto grid min-h-[76px] w-full max-w-6xl grid-cols-[1fr_auto_auto] items-center gap-2 px-5 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-0 lg:px-8">
         <NavLink
           to="/"
@@ -76,7 +76,7 @@ function Navbar() {
           onClick={() => setIsMenuOpen(false)}
         >
           <img src={logo} alt="" className="h-11 w-11 object-contain" width="44" height="44" />
-          <span className="text-lg font-semibold tracking-[-0.01em] text-ink">BenDjo</span>
+          <span className="text-lg font-semibold tracking-[-0.01em] text-leaf">BenDjo</span>
           <span className="sr-only">, accueil</span>
         </NavLink>
 
@@ -88,7 +88,7 @@ function Navbar() {
               end={to === "/"}
               className={({ isActive }) =>
                 `relative py-2 text-[0.8125rem] font-semibold tracking-[0.02em] transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:bg-leaf after:transition-[width] after:duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf ${
-                  isActive ? "text-ink after:w-full" : "text-ink/70 after:w-0 hover:text-ink hover:after:w-full"
+                  isActive ? "text-leaf after:w-full" : "text-leaf/70 after:w-0 hover:text-leaf hover:after:w-full"
                 }`
               }
             >
@@ -100,14 +100,14 @@ function Navbar() {
          <div ref={cartContainerRef} className="relative flex items-center justify-self-end gap-2 lg:gap-3">
            <NavLink
              to="/products"
-             className="hidden min-h-11 items-center rounded-bendjo-md bg-ink px-5 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:inline-flex"
+             className="hidden min-h-11 items-center rounded-bendjo-md bg-leaf px-5 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream lg:inline-flex"
            >
              Choisir une infusion
            </NavLink>
            <button
              ref={cartButtonRef}
              type="button"
-             className="relative inline-flex min-h-11 min-w-11 items-center justify-center rounded-bendjo-sm text-ink transition-colors hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf"
+             className="relative inline-flex min-h-11 min-w-11 items-center justify-center rounded-bendjo-sm text-leaf transition-colors hover:bg-leaf/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf"
              aria-label={itemCount > 0 ? `Ouvrir la sélection, ${itemCount} article${itemCount > 1 ? "s" : ""}` : "Ouvrir la sélection, sélection vide"}
              aria-expanded={isCartOpen}
              aria-controls="cart-panel"
@@ -117,7 +117,7 @@ function Navbar() {
               }}
            >
               <ShoppingBagOpen size={23} weight="regular" aria-hidden="true" />
-             {itemCount > 0 && <span className="absolute right-0 top-0 inline-flex min-h-5 min-w-5 -translate-y-1/4 translate-x-1/4 items-center justify-center rounded-full bg-ink px-1 text-[0.68rem] font-semibold leading-none text-cream" aria-hidden="true">{itemCount}</span>}
+             {itemCount > 0 && <span className="absolute right-0 top-0 inline-flex min-h-5 min-w-5 -translate-y-1/4 translate-x-1/4 items-center justify-center rounded-full bg-leaf px-1 text-[0.68rem] font-semibold leading-none text-cream" aria-hidden="true">{itemCount}</span>}
            </button>
            <Cart panel panelOpen={isCartOpen} onClose={() => { setIsCartOpen(false); cartButtonRef.current?.focus(); }} />
          </div>
@@ -125,7 +125,7 @@ function Navbar() {
         <button
           ref={menuButtonRef}
           type="button"
-          className="group inline-flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 justify-self-end rounded-bendjo-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf lg:hidden"
+          className="group inline-flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 justify-self-end rounded-bendjo-sm text-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf lg:hidden"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
@@ -141,7 +141,7 @@ function Navbar() {
       <div
         ref={menuPanelRef}
         id="mobile-navigation"
-        className={`absolute inset-x-0 top-full border-t border-ink/10 bg-cream ${isMenuOpen ? "grid" : "hidden"} lg:hidden`}
+        className={`absolute inset-x-0 top-full border-t border-leaf/10 bg-cream ${isMenuOpen ? "grid" : "hidden"} lg:hidden`}
         aria-hidden={!isMenuOpen}
       >
         <div className="overflow-hidden">
@@ -155,7 +155,7 @@ function Navbar() {
                 tabIndex={isMenuOpen ? 0 : -1}
                 className={({ isActive }) =>
                   `flex min-h-12 items-center border-b border-leaf/10 text-lg font-semibold transition-[color,padding] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf ${
-                     isActive ? "pl-2 text-ink" : "text-ink/70 hover:pl-2 hover:text-ink"
+                     isActive ? "pl-2 text-leaf" : "text-leaf/70 hover:pl-2 hover:text-leaf"
                   }`
                 }
                 onClick={() => setIsMenuOpen(false)}
@@ -163,7 +163,7 @@ function Navbar() {
                 {label}
               </NavLink>
             ))}
-            <NavLink to="/products" tabIndex={isMenuOpen ? 0 : -1} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-bendjo-md bg-ink px-6 font-medium text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream" onClick={() => setIsMenuOpen(false)}>
+            <NavLink to="/products" tabIndex={isMenuOpen ? 0 : -1} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-bendjo-md bg-leaf px-6 font-medium text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream" onClick={() => setIsMenuOpen(false)}>
               Choisir une infusion
             </NavLink>
           </div>

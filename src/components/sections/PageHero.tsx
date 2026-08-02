@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import Container from "../ui/Container";
 import ProvenanceLabel from "../ui/ProvenanceLabel";
 
-type PageHeroTone = "ink" | "cream";
+type PageHeroTone = "leaf" | "cream";
 
 interface PageHeroProps {
   id: string;
@@ -26,10 +26,10 @@ interface PageHeroProps {
 }
 
 function PageHero({ id, tone = "cream", label, title, description, actions, image, imageSrcSet, imageAvif, imageAvifSrcSet, imageSizes, imageAlt, imageWidth, imageHeight, imagePosition = "center", imageFit = "cover", imageScale = 1, labelItems }: PageHeroProps) {
-  const isInk = tone === "ink";
-  const surface = isInk ? "bg-ink text-cream" : "bg-cream text-ink";
-  const mutedText = isInk ? "text-cream/80" : "text-ink/80";
-  const border = isInk ? "border-cream/25" : "border-ink/15";
+  const isLeaf = tone === "leaf";
+  const surface = isLeaf ? "bg-leaf text-cream" : "bg-cream text-leaf";
+  const mutedText = isLeaf ? "text-cream/80" : "text-leaf/80";
+  const border = isLeaf ? "border-cream/25" : "border-leaf/15";
 
   return (
     <section data-motion-hero className={`overflow-hidden py-10 sm:py-12 lg:min-h-[min(42rem,calc(100svh-76px))] lg:py-16 ${surface}`} aria-labelledby={id}>
@@ -40,7 +40,7 @@ function PageHero({ id, tone = "cream", label, title, description, actions, imag
               <span className="h-px w-10 bg-kraft" aria-hidden="true" />
               {label}
             </div>
-            <h1 data-motion-step id={id} className={`type-hero-title mt-4 sm:mt-5 ${isInk ? "text-cream" : "text-ink"}`}>
+            <h1 data-motion-step id={id} className={`type-hero-title mt-4 sm:mt-5 ${isLeaf ? "text-cream" : "text-leaf"}`}>
               {title}
             </h1>
             <div data-motion-step className={`mt-5 max-w-lg border-t pt-5 sm:mt-6 ${border}`}>

@@ -21,9 +21,9 @@ function Services() {
     <>
       <DocumentMeta {...routeMetadata.services} />
       <div>
-         <PageHero id="services-title" label="Services pour entreprises" title="Petit-déjeuner en entreprise et service traiteur." description={<><span>BenDjo propose des prestations pour les entreprises et leurs événements.</span><span className="mt-3 block text-sm font-semibold text-ink">Cotonou et Abomey-Calavi</span></>} image={servicesHeroImage1024} imageSrcSet={`${servicesHeroImage480} 480w, ${servicesHeroImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Table préparée avec des tasses d’infusion et une présentation de restauration pour un moment professionnel" imageWidth={1024} imageHeight={576} imagePosition="center" labelItems={[{ label: "Parcours", value: "Entreprises" }]} actions={<><Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Présenter votre besoin</Link><a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto"><WhatsappLogo size={19} weight="fill" aria-hidden="true" />Échanger sur WhatsApp</a></>} />
+         <PageHero id="services-title" label="Services pour entreprises" title="Petit-déjeuner en entreprise et service traiteur." description={<><span>BenDjo propose des prestations pour les entreprises et leurs événements.</span><span className="mt-3 block text-sm font-semibold text-leaf">Cotonou et Abomey-Calavi</span></>} image={servicesHeroImage1024} imageSrcSet={`${servicesHeroImage480} 480w, ${servicesHeroImage1024} 1024w`} imageSizes="(min-width: 1024px) 619px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 40px)" imageAlt="Table préparée avec des tasses d’infusion et une présentation de restauration pour un moment professionnel" imageWidth={1024} imageHeight={576} imagePosition="center" labelItems={[{ label: "Parcours", value: "Entreprises" }]} actions={<><Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Présenter votre besoin</Link><a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-leaf transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto"><WhatsappLogo size={19} weight="fill" aria-hidden="true" />Échanger sur WhatsApp</a></>} />
 
-        <section className="bg-ink py-9 text-cream sm:py-11 lg:py-12" aria-labelledby="services-context-title">
+        <section className="bg-leaf py-9 text-cream sm:py-11 lg:py-12" aria-labelledby="services-context-title">
           <Container className="grid gap-6 lg:grid-cols-[0.55fr_1fr] lg:gap-12">
             <div>
               <p className="type-kicker text-cream/70">Pour votre entreprise</p>
@@ -34,17 +34,17 @@ function Services() {
               <article data-motion-item className="grid gap-2 border-b border-cream/25 py-4 sm:grid-cols-[0.8fr_1fr] sm:gap-x-8 lg:grid-cols-[0.8fr_1fr_auto] lg:items-center">
                 <h3 className="font-display text-2xl leading-tight text-cream">Petit-déjeuner en entreprise</h3>
                 <p className="leading-7 text-cream/75">BenDjo propose un service de petit-déjeuner destiné aux entreprises.</p>
-                <a href="#petit-dejeuner" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Découvrir le petit-déjeuner <ArrowRight size={17} weight="regular" aria-hidden="true" /></a>
+                <a href="#petit-dejeuner" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-leaf sm:col-start-2 lg:col-start-auto">Découvrir le petit-déjeuner <ArrowRight size={17} weight="regular" aria-hidden="true" /></a>
               </article>
               <article data-motion-item className="grid gap-2 border-b border-cream/25 py-4 sm:grid-cols-[0.8fr_1fr] sm:gap-x-8 lg:grid-cols-[0.8fr_1fr_auto] lg:items-center">
                 <h3 className="font-display text-2xl leading-tight text-cream">Événement professionnel</h3>
                 <p className="leading-7 text-cream/75">BenDjo propose un service traiteur pour les événements professionnels.</p>
-                <a href="#traiteur-evenements" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Découvrir le service traiteur <ArrowRight size={17} weight="regular" aria-hidden="true" /></a>
+                <a href="#traiteur-evenements" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-leaf sm:col-start-2 lg:col-start-auto">Découvrir le service traiteur <ArrowRight size={17} weight="regular" aria-hidden="true" /></a>
               </article>
               <article data-motion-item className="grid gap-2 border-b border-cream/25 py-3 sm:grid-cols-[0.8fr_1fr] sm:gap-x-8 lg:grid-cols-[0.8fr_1fr_auto] lg:items-center">
                 <h3 className="font-display text-xl leading-tight text-cream/85">Lancement de produit</h3>
                 <p className="leading-7 text-cream/75">Le service traiteur BenDjo est notamment proposé pour les événements de lancement de produit.</p>
-                <Link to="/contact?type=lancement" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:col-start-2 lg:col-start-auto">Présenter un lancement de produit <ArrowRight size={17} weight="regular" aria-hidden="true" /></Link>
+                <Link to="/contact?type=lancement" className="inline-flex min-h-11 items-center gap-2 rounded-bendjo-sm text-cream underline decoration-cream/40 underline-offset-4 transition-colors hover:text-cream/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-leaf sm:col-start-2 lg:col-start-auto">Présenter un lancement de produit <ArrowRight size={17} weight="regular" aria-hidden="true" /></Link>
               </article>
             </div>
           </Container>
@@ -52,23 +52,23 @@ function Services() {
 
         <section id="petit-dejeuner" className="scroll-mt-20 bg-cream py-14 sm:py-16 lg:py-20" aria-labelledby="corporate-breakfast-title">
           <Container>
-            <div className="grid gap-7 border-t border-ink/20 pt-7 md:grid-cols-[0.7fr_1fr] md:gap-10 md:pt-8 lg:gap-16">
+            <div className="grid gap-7 border-t border-leaf/20 pt-7 md:grid-cols-[0.7fr_1fr] md:gap-10 md:pt-8 lg:gap-16">
               <div>
                 <div className="flex items-center gap-3">
                   <span className="h-px w-10 bg-kraft" aria-hidden="true" />
-                  <p className="type-label text-ink/75">Petit-déjeuner en entreprise</p>
+                  <p className="type-label text-leaf/75">Petit-déjeuner en entreprise</p>
                 </div>
-                <h2 id="corporate-breakfast-title" className="type-section-title-lg type-section-title-narrow mt-4 text-ink sm:mt-5">Un petit-déjeuner pour votre temps d’équipe.</h2>
+                <h2 id="corporate-breakfast-title" className="type-section-title-lg type-section-title-narrow mt-4 text-leaf sm:mt-5">Un petit-déjeuner pour votre temps d’équipe.</h2>
               </div>
 
               <div>
-                <p className="type-lead text-pretty text-ink/80 sm:text-xl sm:leading-9">BenDjo propose un service de petit-déjeuner destiné aux entreprises, pour une réunion ou un moment d’équipe.</p>
+                <p className="type-lead text-pretty text-leaf/80 sm:text-xl sm:leading-9">BenDjo propose un service de petit-déjeuner destiné aux entreprises, pour une réunion ou un moment d’équipe.</p>
                 <div className="mt-7 border-y border-leaf/20 py-5">
-                  <p className="type-label text-ink/75">Contextes concernés</p>
-                  <p className="mt-3 text-lg font-semibold leading-7 text-ink">Entreprise · Réunion · Moment d’équipe</p>
+                  <p className="type-label text-leaf/75">Contextes concernés</p>
+                  <p className="mt-3 text-lg font-semibold leading-7 text-leaf">Entreprise · Réunion · Moment d’équipe</p>
                 </div>
-                <p className="mt-7 max-w-xl leading-7 text-ink/70">Les modalités sont définies avec BenDjo selon le besoin de votre entreprise.</p>
-                <Link to="/contact?type=petit-dejeuner" className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Présenter votre besoin</Link>
+                <p className="mt-7 max-w-xl leading-7 text-leaf/70">Les modalités sont définies avec BenDjo selon le besoin de votre entreprise.</p>
+                <Link to="/contact?type=petit-dejeuner" className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Présenter votre besoin</Link>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ function Services() {
           </Container>
         </section>
 
-        <section id="traiteur-evenements" className="scroll-mt-20 bg-ink py-14 text-cream sm:py-16 lg:py-20" aria-labelledby="catering-events-title">
+        <section id="traiteur-evenements" className="scroll-mt-20 bg-leaf py-14 text-cream sm:py-16 lg:py-20" aria-labelledby="catering-events-title">
           <Container className="grid gap-7 border-t border-cream/25 pt-7 md:grid-cols-[1fr_0.7fr] md:gap-x-10 md:gap-y-8 md:pt-8 lg:gap-x-16">
             <div className="md:col-start-2 md:row-start-1">
               <div className="flex items-center gap-3">
@@ -116,7 +116,7 @@ function Services() {
                 <p id="lancement-produit" className="scroll-mt-24 border-t border-cream/25 py-4 text-lg font-semibold leading-7 text-cream">Lancement de produit</p>
               </div>
               <p className="mt-7 max-w-xl leading-7 text-cream/75">La prestation est définie avec BenDjo selon le besoin de votre entreprise.</p>
-              <Link to="/contact?type=traiteur" className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-cream px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-cream/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:w-auto">Présenter votre besoin</Link>
+              <Link to="/contact?type=traiteur" className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-cream px-7 py-3.5 text-sm font-semibold text-leaf transition-colors hover:bg-cream/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-leaf sm:w-auto">Présenter votre besoin</Link>
             </div>
 
             <div className="grid grid-cols-2 gap-3 md:col-start-2 md:row-start-2 lg:gap-4">
@@ -144,23 +144,23 @@ function Services() {
 
         <section className="bg-cream py-12 sm:py-14 lg:py-16" aria-labelledby="services-contribution-title">
           <Container>
-            <div className="grid gap-7 border-t border-ink/20 pt-7 md:grid-cols-[0.8fr_1fr] md:items-start md:gap-10 md:pt-8 lg:gap-16">
+            <div className="grid gap-7 border-t border-leaf/20 pt-7 md:grid-cols-[0.8fr_1fr] md:items-start md:gap-10 md:pt-8 lg:gap-16">
               <div>
                 <div className="flex items-center gap-3">
                   <span className="h-px w-10 bg-kraft" aria-hidden="true" />
-                  <p className="type-label text-ink/75">Ce que BenDjo apporte</p>
+                  <p className="type-label text-leaf/75">Ce que BenDjo apporte</p>
                 </div>
-                <h2 id="services-contribution-title" className="type-section-title mt-4 max-w-[13ch] text-ink sm:mt-5">Une offre pensée pour vos moments professionnels</h2>
+                <h2 id="services-contribution-title" className="type-section-title mt-4 max-w-[13ch] text-leaf sm:mt-5">Une offre pensée pour vos moments professionnels</h2>
               </div>
 
-              <ul className="text-ink">
-                <li className="border-b border-ink/20 pb-4">
-                  <span className="type-label block text-ink/75">En complément des prestations</span>
-                  <span className="mt-2 block font-display text-xl leading-snug text-ink">Les infusions naturelles BenDjo</span>
+              <ul className="text-leaf">
+                <li className="border-b border-leaf/20 pb-4">
+                  <span className="type-label block text-leaf/75">En complément des prestations</span>
+                  <span className="mt-2 block font-display text-xl leading-snug text-leaf">Les infusions naturelles BenDjo</span>
                 </li>
-                <li className="border-b border-ink/20 py-4 text-lg font-medium leading-7">L’accompagnement des entreprises</li>
-                <li className="border-b border-ink/20 py-4 text-lg font-medium leading-7">Un ancrage à Cotonou et Abomey-Calavi</li>
-                <li className="border-b border-ink/20 py-4 text-lg font-medium leading-7">Une approche adaptée au contexte de chaque demande</li>
+                <li className="border-b border-leaf/20 py-4 text-lg font-medium leading-7">L’accompagnement des entreprises</li>
+                <li className="border-b border-leaf/20 py-4 text-lg font-medium leading-7">Un ancrage à Cotonou et Abomey-Calavi</li>
+                <li className="border-b border-leaf/20 py-4 text-lg font-medium leading-7">Une approche adaptée au contexte de chaque demande</li>
               </ul>
             </div>
           </Container>
@@ -168,44 +168,44 @@ function Services() {
 
         <section className="bg-kraft/15 py-12 sm:py-14 lg:py-16" aria-labelledby="prepare-request-title">
           <Container>
-            <div className="grid gap-7 border-t border-ink/20 pt-7 md:grid-cols-[0.8fr_1fr] md:gap-10 md:pt-8 lg:gap-16">
+            <div className="grid gap-7 border-t border-leaf/20 pt-7 md:grid-cols-[0.8fr_1fr] md:gap-10 md:pt-8 lg:gap-16">
               <div>
                 <div className="flex items-center gap-3">
                   <span className="h-px w-10 bg-kraft" aria-hidden="true" />
-                  <p className="type-label text-ink/75">Informations utiles</p>
+                  <p className="type-label text-leaf/75">Informations utiles</p>
                 </div>
-                <h2 id="prepare-request-title" className="type-section-title mt-4 text-ink sm:mt-5">Préparer votre demande</h2>
-                <p className="mt-5 max-w-lg leading-7 text-ink/80">Ces informations peuvent aider BenDjo à orienter votre demande. Elles ne constituent pas une procédure obligatoire.</p>
+                <h2 id="prepare-request-title" className="type-section-title mt-4 text-leaf sm:mt-5">Préparer votre demande</h2>
+                <p className="mt-5 max-w-lg leading-7 text-leaf/80">Ces informations peuvent aider BenDjo à orienter votre demande. Elles ne constituent pas une procédure obligatoire.</p>
               </div>
 
               <div>
-                <ul className="text-ink">
-                  <li className="border-b border-ink/20 py-4 text-lg font-medium">Le type de besoin</li>
-                  <li className="border-b border-ink/20 py-4 text-lg font-medium">Le lieu</li>
-                  <li className="border-b border-ink/20 py-4 text-lg font-medium">La date envisagée</li>
-                  <li className="border-b border-ink/20 py-4 text-lg font-medium">Le nombre approximatif de personnes, si connu</li>
+                <ul className="text-leaf">
+                  <li className="border-b border-leaf/20 py-4 text-lg font-medium">Le type de besoin</li>
+                  <li className="border-b border-leaf/20 py-4 text-lg font-medium">Le lieu</li>
+                  <li className="border-b border-leaf/20 py-4 text-lg font-medium">La date envisagée</li>
+                  <li className="border-b border-leaf/20 py-4 text-lg font-medium">Le nombre approximatif de personnes, si connu</li>
                 </ul>
-                <p className="mt-7 max-w-xl leading-7 text-ink/80">Vous pourrez transmettre les éléments dont vous disposez au moment de présenter votre besoin.</p>
+                <p className="mt-7 max-w-xl leading-7 text-leaf/80">Vous pourrez transmettre les éléments dont vous disposez au moment de présenter votre besoin.</p>
               </div>
             </div>
           </Container>
         </section>
 
-        <section className="bg-cream py-12 text-ink sm:py-16 lg:py-20" aria-labelledby="services-contact-title">
+        <section className="bg-cream py-12 text-leaf sm:py-16 lg:py-20" aria-labelledby="services-contact-title">
           <Container>
             <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end lg:gap-16">
               <div>
                 <div className="flex items-center gap-3">
                   <span className="h-px w-10 bg-kraft" aria-hidden="true" />
-                   <p className="type-label text-ink/75">Votre demande</p>
+                   <p className="type-label text-leaf/75">Votre demande</p>
                  </div>
-                 <h2 id="services-contact-title" className="type-section-title-lg mt-4 text-ink sm:mt-5">Présentez votre contexte à BenDjo.</h2>
+                 <h2 id="services-contact-title" className="type-section-title-lg mt-4 text-leaf sm:mt-5">Présentez votre contexte à BenDjo.</h2>
                </div>
                <div>
-                 <p className="max-w-xl leading-7 text-ink/80">Indiquez les informations dont vous disposez pour orienter l’échange.</p>
+                 <p className="max-w-xl leading-7 text-leaf/80">Indiquez les informations dont vous disposez pour orienter l’échange.</p>
                  <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                   <Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto lg:w-full xl:w-auto">Présenter votre besoin</Link>
-                   <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto lg:w-full xl:w-auto"><WhatsappLogo size={19} weight="fill" aria-hidden="true" />Échanger sur WhatsApp</a>
+                   <Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto lg:w-full xl:w-auto">Présenter votre besoin</Link>
+                   <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-bendjo-md border border-lemongrass bg-lemongrass px-7 py-3.5 text-sm font-semibold text-leaf transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto lg:w-full xl:w-auto"><WhatsappLogo size={19} weight="fill" aria-hidden="true" />Échanger sur WhatsApp</a>
                  </div>
               </div>
             </div>

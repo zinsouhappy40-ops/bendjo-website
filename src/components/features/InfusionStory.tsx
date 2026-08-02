@@ -48,38 +48,38 @@ function ProductInformation({ product, profile, story, tone, quantity, onAdd }: 
 
   return (
     <div className={`min-w-0 ${isHibiscus ? "max-w-xl" : ""}`}>
-      <p className="type-label text-ink/75">
+      <p className="type-label text-leaf/75">
         {isHibiscus ? "INFUSION NATURELLE" : "Infusion naturelle"}
       </p>
       {isLemongrass && (
-        <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-ink/75">
-          <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-ink ${toneStyles[tone].dot}`} aria-hidden="true" />
+        <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-leaf/75">
+          <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-leaf ${toneStyles[tone].dot}`} aria-hidden="true" />
           {profile}
         </p>
       )}
-      <h2 id={`${product.id}-title`} className={`type-product-title mt-2 text-ink ${isLemongrass ? "type-product-title-long" : ""}`}>
+      <h2 id={`${product.id}-title`} className={`type-product-title mt-2 text-leaf ${isLemongrass ? "type-product-title-long" : ""}`}>
         {isHibiscus ? "Hibiscus" : product.name}
       </h2>
-      {!isLemongrass && <p className={`mt-4 flex items-center gap-2 text-sm font-semibold text-ink/75 ${isBasil ? "mt-3" : ""} ${isHibiscus ? "sm:mt-4" : ""}`}>
-        <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-ink ${toneStyles[tone].dot}`} aria-hidden="true" />
+      {!isLemongrass && <p className={`mt-4 flex items-center gap-2 text-sm font-semibold text-leaf/75 ${isBasil ? "mt-3" : ""} ${isHibiscus ? "sm:mt-4" : ""}`}>
+        <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-leaf ${toneStyles[tone].dot}`} aria-hidden="true" />
         {profile}
       </p>}
-      <p className={`type-body mt-5 max-w-xl text-pretty text-ink/80 ${isBasil || isLemongrass ? "mt-4" : ""}`}>{story}</p>
-      <dl className={`mt-7 grid grid-cols-2 border-y border-ink/25 py-5 ${isBasil ? "mt-6" : ""} ${isLemongrass ? "mt-6 py-4 sm:mt-7" : ""} ${isHibiscus ? "mt-6 py-4 sm:mt-7 sm:py-5" : ""}`}>
+      <p className={`type-body mt-5 max-w-xl text-pretty text-leaf/80 ${isBasil || isLemongrass ? "mt-4" : ""}`}>{story}</p>
+      <dl className={`mt-7 grid grid-cols-2 border-y border-leaf/25 py-5 ${isBasil ? "mt-6" : ""} ${isLemongrass ? "mt-6 py-4 sm:mt-7" : ""} ${isHibiscus ? "mt-6 py-4 sm:mt-7 sm:py-5" : ""}`}>
         <div>
-          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-ink/75">Format</dt>
-          <dd className="mt-2 text-sm font-medium text-ink">{product.format}</dd>
+          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-leaf/75">Format</dt>
+          <dd className="mt-2 text-sm font-medium text-leaf">{product.format}</dd>
         </div>
-        <div className="border-l border-ink/20 pl-5">
-          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-ink/75">Prix</dt>
-          <dd className="mt-2 text-sm font-medium text-ink">{product.price.toLocaleString("fr-FR")} FCFA</dd>
+        <div className="border-l border-leaf/20 pl-5">
+          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-leaf/75">Prix</dt>
+          <dd className="mt-2 text-sm font-medium text-leaf">{product.price.toLocaleString("fr-FR")} FCFA</dd>
         </div>
       </dl>
       <div className={`mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center ${isBasil ? "mt-5" : ""} ${isLemongrass ? "mt-6" : ""} ${isHibiscus ? "sm:mt-6" : ""}`}>
-        <Button type="button" variant="ink" className="w-full sm:w-auto" onClick={() => onAdd(product)} aria-label={`Ajouter ${product.name} à ma sélection`}>
+        <Button type="button" variant="leaf" className="w-full sm:w-auto" onClick={() => onAdd(product)} aria-label={`Ajouter ${product.name} à ma sélection`}>
           <ShoppingBagOpen size={19} weight="regular" aria-hidden="true" /> Ajouter à ma sélection
         </Button>
-        {quantity > 0 && <p className="text-sm font-semibold text-ink" role="status">{quantity} dans votre sélection</p>}
+        {quantity > 0 && <p className="text-sm font-semibold text-leaf" role="status">{quantity} dans votre sélection</p>}
       </div>
     </div>
   );
@@ -127,13 +127,13 @@ function InfusionStory(props: InfusionStoryProps) {
 
   if (layout === "feature") {
     return (
-       <section id={product.id} className={`${toneStyles[tone].surface} py-12 ${isHibiscus ? "border-t border-ink/10 sm:py-20 lg:py-24" : isLemongrass ? "border-y border-lemongrass/25 sm:py-12 lg:py-14" : "sm:py-16 lg:py-20"} ${isBasil ? "border-y border-basil/20" : ""} ${sectionClassName}`} aria-labelledby={`${product.id}-title`}>
+       <section id={product.id} className={`${toneStyles[tone].surface} py-12 ${isHibiscus ? "border-t border-leaf/10 sm:py-20 lg:py-24" : isLemongrass ? "border-y border-lemongrass/25 sm:py-12 lg:py-14" : "sm:py-16 lg:py-20"} ${isBasil ? "border-y border-basil/20" : ""} ${sectionClassName}`} aria-labelledby={`${product.id}-title`}>
            <div className={`mx-auto grid w-full max-w-6xl gap-7 px-5 sm:px-6 md:grid-cols-12 md:items-start md:gap-8 lg:gap-14 lg:px-8 ${isLemongrass ? "md:items-center" : ""}`}>
              <div className={`grid gap-4 sm:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)] md:col-span-7 md:min-h-[22rem] lg:min-h-[26rem] ${contentFirst ? "order-2" : ""} ${isLemongrass ? "sm:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] sm:gap-3 md:gap-4 lg:gap-5" : ""} ${featureClassName}`}>
                <figure className={`h-full overflow-hidden rounded-bendjo-md bg-kraft/15 shadow-bendjo-image ${packagingClassName}`}>
                    <PackagingImage src={packagingImage} srcSet={packagingSrcSet} alt={packagingAlt} width={packagingWidth} height={packagingHeight} position={isLemongrass ? "center 42%" : packagingPosition} scale={packagingScale} origin={packagingOrigin} className={`aspect-[5/4] h-full sm:aspect-[4/3] ${isLemongrass ? "sm:aspect-[16/10]" : ""}`} />
               </figure>
-               <figure className={`h-full overflow-hidden rounded-bendjo-md bg-kraft/15 ring-1 ring-inset ring-ink/10 ${materialClassName}`}>
+               <figure className={`h-full overflow-hidden rounded-bendjo-md bg-kraft/15 ring-1 ring-inset ring-leaf/10 ${materialClassName}`}>
                   <MaterialImage src={materialImage} srcSet={materialSrcSet} alt={isHibiscus ? "Fleurs d’hibiscus séchées visibles parmi d’autres matières végétales" : isLemongrass ? "Tiges de citronnelle fraîches, photographiées avec des feuilles vertes en arrière-plan" : materialAlt} width={materialWidth} height={materialHeight} position={isLemongrass ? "center 68%" : materialPosition} className={`aspect-[4/3] h-full sm:aspect-[4/3] ${isLemongrass ? "sm:aspect-[4/3]" : ""}`} />
                </figure>
           </div>

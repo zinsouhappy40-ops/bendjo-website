@@ -41,7 +41,7 @@ const infusionDetails = [
     materialWidth: 1024,
     materialHeight: 1024,
     materialPosition: "center",
-    sectionClassName: "border-t border-ink/10",
+    sectionClassName: "border-t border-leaf/10",
     featureClassName: "md:col-span-7 md:pr-2",
     informationClassName: "md:col-span-5 md:pl-2",
     packagingClassName: "sm:translate-y-2",
@@ -122,10 +122,10 @@ function Products() {
           { label: "Format", value: "10 sachets" },
           { label: "Prix", value: "1 500 FCFA" },
         ]}
-        actions={<><a href="#hibiscus" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-ink px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Choisir une infusion</a><a href="#comptoir" className="inline-flex min-h-11 w-full items-center justify-center rounded-bendjo-sm px-1 text-sm font-semibold text-ink underline decoration-ink/35 underline-offset-4 transition-colors hover:decoration-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Comparer les infusions</a></>}
+        actions={<><a href="#hibiscus" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Choisir une infusion</a><a href="#comptoir" className="inline-flex min-h-11 w-full items-center justify-center rounded-bendjo-sm px-1 text-sm font-semibold text-leaf underline decoration-leaf/35 underline-offset-4 transition-colors hover:decoration-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Comparer les infusions</a></>}
       />
 
-      <section id="comptoir" className="scroll-mt-20 bg-ink py-16 text-cream sm:py-20 lg:py-24" aria-labelledby="comparison-title">
+      <section id="comptoir" className="scroll-mt-20 bg-leaf py-16 text-cream sm:py-20 lg:py-24" aria-labelledby="comparison-title">
         <Container>
           <div className="grid gap-4 border-b border-cream/30 pb-7 md:grid-cols-[0.72fr_1fr] md:items-end md:gap-8">
             <div>

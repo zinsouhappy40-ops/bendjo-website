@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "text" | "ink";
+type ButtonVariant = "primary" | "secondary" | "text" | "leaf";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -8,10 +8,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-ink text-cream hover:bg-ink/90 hover:-translate-y-0.5 hover:shadow-bendjo-action",
-  secondary: "border border-lemongrass bg-lemongrass text-ink hover:-translate-y-0.5 hover:underline",
-  text: "bg-transparent text-ink hover:text-ink/75",
-  ink: "bg-ink text-cream hover:bg-ink/90 hover:-translate-y-0.5 hover:shadow-bendjo-action",
+  primary: "bg-leaf text-cream hover:bg-leaf/90 hover:-translate-y-0.5 hover:shadow-bendjo-action",
+  secondary: "border border-lemongrass bg-lemongrass text-leaf hover:-translate-y-0.5 hover:underline",
+  text: "bg-transparent text-leaf hover:text-leaf/75",
+  leaf: "bg-leaf text-cream hover:bg-leaf/90 hover:-translate-y-0.5 hover:shadow-bendjo-action",
 };
 
 function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {
