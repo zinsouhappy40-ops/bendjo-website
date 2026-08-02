@@ -54,7 +54,7 @@ function PageHero({ id, tone = "cream", label, title, description, actions, imag
             <picture>
               {imageAvifSrcSet && <source type="image/avif" srcSet={imageAvifSrcSet} sizes={imageSizes} />}
               {imageSrcSet && <source type="image/webp" srcSet={imageSrcSet} sizes={imageSizes} />}
-              <img src={imageAvif ?? image} srcSet={imageAvifSrcSet ?? imageSrcSet} sizes={imageSizes} alt={imageAlt} className={imageFit === "contain" ? "relative h-auto w-full object-contain" : "absolute inset-0 h-full w-full object-cover"} style={{ objectPosition: imagePosition, transform: `scale(${imageScale})` }} width={imageWidth} height={imageHeight} loading="eager" fetchPriority="high" decoding="async" />
+              <img {...{ fetchpriority: "high" }} src={imageAvif ?? image} srcSet={imageAvifSrcSet ?? imageSrcSet} sizes={imageSizes} alt={imageAlt} className={imageFit === "contain" ? "relative h-auto w-full object-contain" : "absolute inset-0 h-full w-full object-cover"} style={{ objectPosition: imagePosition, transform: `scale(${imageScale})` }} width={imageWidth} height={imageHeight} loading="eager" decoding="async" />
             </picture>
             {labelItems && <ProvenanceLabel items={labelItems} className={`absolute bottom-4 left-4 right-4 ${labelItems.length === 1 ? "grid-cols-1" : "grid-cols-3"} sm:bottom-6 sm:left-6 sm:right-auto lg:bottom-8 lg:left-0`} />}
           </figure>

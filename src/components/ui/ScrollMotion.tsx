@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const revealSelector = "main section, [data-motion-group]";
@@ -6,7 +6,7 @@ const revealSelector = "main section, [data-motion-group]";
 function ScrollMotion() {
   const { pathname, hash, key } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (hash) {
       document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
       return;
@@ -15,7 +15,7 @@ function ScrollMotion() {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname, hash, key]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const root = document.documentElement;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
