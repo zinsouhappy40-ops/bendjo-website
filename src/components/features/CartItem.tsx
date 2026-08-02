@@ -31,7 +31,7 @@ function CartItem({ item, compact = false, onIncrease, onDecrease, onRemove }: C
                  <Plus size={16} weight="regular" aria-hidden="true" />
                </span>
              </button>
-            <button type="button" className={`min-h-11 rounded-bendjo-sm px-3 text-sm underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 ${compact ? "text-cream hover:text-cream/75 focus-visible:ring-cream" : "text-ink hover:text-ink/70 focus-visible:ring-leaf"}`} onClick={() => onRemove(product.id)} aria-label={`Supprimer ${product.name}`}>
+             <button type="button" className={`inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-bendjo-sm px-3 text-sm underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 ${compact ? "text-cream hover:text-cream/75 focus-visible:ring-cream" : "text-ink hover:text-ink/70 focus-visible:ring-leaf"}`} onClick={() => onRemove(product.id)} aria-label={`Supprimer ${product.name}`}>
                <Trash size={16} weight="regular" aria-hidden="true" />
                <span>Supprimer</span>
             </button>
