@@ -33,8 +33,8 @@ function VerifiedFacts() {
               key={fact.label}
               className={`py-3.5 sm:px-6 sm:py-4 ${index < facts.length - 1 ? "border-b border-leaf/15" : ""} ${index === 2 ? "sm:border-b-0" : ""} ${index % 2 === 0 ? "sm:border-r sm:border-leaf/15" : ""}`}
             >
-              <p className="type-label text-leaf/75">{fact.label}</p>
-              <p className="mt-1.5 max-w-[34ch] text-base leading-6 text-leaf sm:text-lg sm:leading-7">{fact.content}</p>
+              <p className="type-label text-copy">{fact.label}</p>
+              <p className="mt-1.5 max-w-[34ch] text-base leading-6 text-copy sm:text-lg sm:leading-7">{fact.content}</p>
             </li>
           ))}
         </ul>

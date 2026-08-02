@@ -48,11 +48,11 @@ function ProductInformation({ product, profile, story, tone, quantity, onAdd }: 
 
   return (
     <div className={`min-w-0 ${isHibiscus ? "max-w-xl" : ""}`}>
-      <p className="type-label text-leaf/75">
+      <p className="type-label text-copy">
         {isHibiscus ? "INFUSION NATURELLE" : "Infusion naturelle"}
       </p>
       {isLemongrass && (
-        <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-leaf/75">
+        <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-copy">
           <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-leaf ${toneStyles[tone].dot}`} aria-hidden="true" />
           {profile}
         </p>
@@ -60,26 +60,26 @@ function ProductInformation({ product, profile, story, tone, quantity, onAdd }: 
       <h2 id={`${product.id}-title`} className={`type-product-title mt-2 text-leaf ${isLemongrass ? "type-product-title-long" : ""}`}>
         {isHibiscus ? "Hibiscus" : product.name}
       </h2>
-      {!isLemongrass && <p className={`mt-4 flex items-center gap-2 text-sm font-semibold text-leaf/75 ${isBasil ? "mt-3" : ""} ${isHibiscus ? "sm:mt-4" : ""}`}>
+      {!isLemongrass && <p className={`mt-4 flex items-center gap-2 text-sm font-semibold text-copy ${isBasil ? "mt-3" : ""} ${isHibiscus ? "sm:mt-4" : ""}`}>
         <span className={`h-2.5 w-2.5 rounded-full ring-2 ring-leaf ${toneStyles[tone].dot}`} aria-hidden="true" />
         {profile}
       </p>}
-      <p className={`type-body mt-5 max-w-xl text-pretty text-leaf/80 ${isBasil || isLemongrass ? "mt-4" : ""}`}>{story}</p>
+      <p className={`type-body mt-5 max-w-xl text-pretty text-copy ${isBasil || isLemongrass ? "mt-4" : ""}`}>{story}</p>
       <dl className={`mt-7 grid grid-cols-2 border-y border-leaf/25 py-5 ${isBasil ? "mt-6" : ""} ${isLemongrass ? "mt-6 py-4 sm:mt-7" : ""} ${isHibiscus ? "mt-6 py-4 sm:mt-7 sm:py-5" : ""}`}>
         <div>
-          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-leaf/75">Format</dt>
-          <dd className="mt-2 text-sm font-medium text-leaf">{product.format}</dd>
+          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-copy">Format</dt>
+          <dd className="mt-2 text-sm font-medium text-copy">{product.format}</dd>
         </div>
         <div className="border-l border-leaf/20 pl-5">
-          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-leaf/75">Prix</dt>
-          <dd className="mt-2 text-sm font-medium text-leaf">{product.price.toLocaleString("fr-FR")} FCFA</dd>
+          <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-copy">Prix</dt>
+          <dd className="mt-2 text-sm font-medium text-copy">{product.price.toLocaleString("fr-FR")} FCFA</dd>
         </div>
       </dl>
       <div className={`mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center ${isBasil ? "mt-5" : ""} ${isLemongrass ? "mt-6" : ""} ${isHibiscus ? "sm:mt-6" : ""}`}>
         <Button type="button" variant="leaf" className="w-full sm:w-auto" onClick={() => onAdd(product)} aria-label={`Ajouter ${product.name} à ma sélection`}>
           <ShoppingBagOpen size={19} weight="regular" aria-hidden="true" /> Ajouter à ma sélection
         </Button>
-        {quantity > 0 && <p className="text-sm font-semibold text-leaf" role="status">{quantity} dans votre sélection</p>}
+        {quantity > 0 && <p className="text-sm font-semibold text-copy" role="status">{quantity} dans votre sélection</p>}
       </div>
     </div>
   );

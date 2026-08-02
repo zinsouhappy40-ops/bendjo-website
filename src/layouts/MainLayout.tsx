@@ -10,7 +10,7 @@ function MainLayout() {
   return (
     <CartProvider>
       <ScrollMotion />
-      <a href="#main-content" className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-bendjo-sm bg-cream px-4 py-3 font-semibold text-leaf shadow-bendjo-soft transition-transform focus:translate-y-0">
+      <a href="#main-content" className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-bendjo-sm bg-cream px-4 py-3 font-semibold text-copy shadow-bendjo-soft transition-transform focus:translate-y-0">
         Aller au contenu
       </a>
       <Navbar key={pathname} />

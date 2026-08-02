@@ -24,7 +24,7 @@ function WhatsAppOrderCTA({ items }: WhatsAppOrderCTAProps) {
       <Button type="button" variant="leaf" className="w-full" disabled={isUnavailable} onClick={handleOrder}>
         <WhatsappLogo size={20} weight="fill" aria-hidden="true" /> Commander via WhatsApp
       </Button>
-      <p className="mt-3 text-xs leading-5 text-leaf/70">
+      <p className="mt-3 text-xs leading-5 text-copy">
         Votre sélection sera envoyée à BenDjo dans un message WhatsApp.
       </p>
     </div>

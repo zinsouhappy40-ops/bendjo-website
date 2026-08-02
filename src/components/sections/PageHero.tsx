@@ -27,8 +27,8 @@ interface PageHeroProps {
 
 function PageHero({ id, tone = "cream", label, title, description, actions, image, imageSrcSet, imageAvif, imageAvifSrcSet, imageSizes, imageAlt, imageWidth, imageHeight, imagePosition = "center", imageFit = "cover", imageScale = 1, labelItems }: PageHeroProps) {
   const isLeaf = tone === "leaf";
-  const surface = isLeaf ? "bg-leaf text-cream" : "bg-cream text-leaf";
-  const mutedText = isLeaf ? "text-cream/80" : "text-leaf/80";
+  const surface = isLeaf ? "bg-leaf text-on-leaf" : "bg-cream text-leaf";
+  const mutedText = isLeaf ? "text-on-leaf" : "text-copy";
   const border = isLeaf ? "border-cream/25" : "border-leaf/15";
 
   return (
@@ -40,7 +40,7 @@ function PageHero({ id, tone = "cream", label, title, description, actions, imag
               <span className="h-px w-10 bg-kraft" aria-hidden="true" />
               {label}
             </div>
-            <h1 data-motion-step id={id} className={`type-hero-title mt-4 sm:mt-5 ${isLeaf ? "text-cream" : "text-leaf"}`}>
+            <h1 data-motion-step id={id} className={`type-hero-title mt-4 sm:mt-5 ${isLeaf ? "text-on-leaf" : "text-leaf"}`}>
               {title}
             </h1>
             <div data-motion-step className={`mt-5 max-w-lg border-t pt-5 sm:mt-6 ${border}`}>

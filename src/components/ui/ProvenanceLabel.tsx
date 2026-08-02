@@ -18,8 +18,8 @@ function ProvenanceLabel({ items, className = "" }: ProvenanceLabelProps) {
           key={label}
           className={`min-w-0 border-leaf/15 px-3 py-3 not-last:border-r sm:px-4 ${stacksOnDesktop ? "lg:not-last:border-b lg:not-last:border-r-0" : ""}`}
         >
-          <dt className="text-[0.6875rem] font-semibold uppercase leading-4 tracking-[0.12em] text-leaf/70">{label}</dt>
-          <dd className="mt-1 text-pretty text-sm font-semibold leading-5 text-leaf">{value}</dd>
+          <dt className="text-[0.6875rem] font-semibold uppercase leading-4 tracking-[0.12em] text-copy">{label}</dt>
+          <dd className="mt-1 text-pretty text-sm font-semibold leading-5 text-copy">{value}</dd>
         </div>
       ))}
     </dl>

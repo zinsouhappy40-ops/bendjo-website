@@ -10,8 +10,8 @@ import { ArrowRight, WhatsappLogo } from "@phosphor-icons/react";
 const whatsappNumber = "2290162014161";
 const whatsappMessage = encodeURIComponent("Bonjour BenDjo, je souhaite commander vos infusions naturelles.");
 
-const primaryLinkStyles = "inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-cream transition-colors duration-300 hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto";
-const secondaryLinkStyles = "inline-flex min-h-11 w-full items-center justify-center px-2 py-2 text-sm font-semibold text-leaf/80 underline decoration-leaf/35 underline-offset-4 transition-colors duration-300 hover:text-leaf hover:decoration-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto";
+const primaryLinkStyles = "inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-on-leaf transition-colors duration-300 hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto";
+const secondaryLinkStyles = "inline-flex min-h-11 w-full items-center justify-center px-2 py-2 text-sm font-semibold text-copy underline decoration-leaf/35 underline-offset-4 transition-colors duration-300 hover:text-copy hover:decoration-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto";
 
 function Hero() {
   return (

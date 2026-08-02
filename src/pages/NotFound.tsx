@@ -9,12 +9,12 @@ function NotFound() {
       <DocumentMeta {...routeMetadata.notFound} />
       <section className="bg-cream py-24 sm:py-32" aria-labelledby="not-found-title">
         <Container className="max-w-2xl text-center">
-          <p className="type-label text-leaf/75">Page introuvable</p>
+          <p className="type-label text-copy">Page introuvable</p>
           <h1 id="not-found-title" className="type-section-title-lg mt-3 text-leaf">Cette page n’existe pas.</h1>
-          <p className="type-body mx-auto mt-4 max-w-xl text-leaf/80">Le contenu recherché n’est pas disponible à cette adresse.</p>
+          <p className="type-body mx-auto mt-4 max-w-xl text-copy">Le contenu recherché n’est pas disponible à cette adresse.</p>
           <Link
             to="/"
-            className="mt-7 inline-flex min-h-11 items-center rounded-bendjo-md bg-leaf px-6 py-3 font-medium text-cream transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+            className="mt-7 inline-flex min-h-11 items-center rounded-bendjo-md bg-leaf px-6 py-3 font-medium text-on-leaf transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
           >
             Retourner à l’accueil
           </Link>

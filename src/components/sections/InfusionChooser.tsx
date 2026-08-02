@@ -48,17 +48,17 @@ function InfusionChooser() {
   const { state, dispatch } = useCart();
 
   return (
-    <section id="infusions" className="bg-leaf py-16 text-cream sm:py-20 lg:py-24" aria-labelledby="infusions-title">
+    <section id="infusions" className="bg-leaf py-16 text-on-leaf sm:py-20 lg:py-24" aria-labelledby="infusions-title">
       <Container>
         <div className="grid gap-5 border-b border-cream/25 pb-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16">
           <div>
-            <p className="type-label text-cream/70">Pour les particuliers</p>
-            <h2 id="infusions-title" className="type-section-title mt-3 text-cream">
+            <p className="type-label text-on-leaf">Pour les particuliers</p>
+            <h2 id="infusions-title" className="type-section-title mt-3 text-on-leaf">
               Choisir votre infusion
             </h2>
           </div>
           <div className="max-w-xl">
-            <p className="type-body text-pretty text-cream/80 sm:text-lg sm:leading-8">
+            <p className="type-body text-pretty text-on-leaf sm:text-lg sm:leading-8">
               Trois infusions naturelles, fabriquées au Bénin, dans le même format et au même prix.
             </p>
             <TextLink to="/products" tone="dark" className="mt-3 gap-2 font-semibold">Découvrir les infusions <ArrowRight size={17} weight="regular" aria-hidden="true" /></TextLink>

@@ -6,8 +6,8 @@ interface TextLinkProps extends LinkProps {
 }
 
 const toneStyles = {
-  light: "text-leaf decoration-leaf/40 hover:text-leaf/75 focus-visible:ring-leaf focus-visible:ring-offset-cream",
-  dark: "text-cream decoration-cream/40 hover:text-cream/75 focus-visible:ring-cream focus-visible:ring-offset-leaf",
+  light: "text-leaf decoration-leaf/40 hover:text-copy focus-visible:ring-leaf focus-visible:ring-offset-cream",
+  dark: "text-on-leaf decoration-cream/40 hover:text-on-leaf focus-visible:ring-cream focus-visible:ring-offset-leaf",
 };
 
 function TextLink({ children, className = "", tone = "light", ...props }: TextLinkProps) {

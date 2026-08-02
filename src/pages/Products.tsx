@@ -122,42 +122,42 @@ function Products() {
           { label: "Format", value: "10 sachets" },
           { label: "Prix", value: "1 500 FCFA" },
         ]}
-        actions={<><a href="#hibiscus" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Choisir une infusion</a><a href="#comptoir" className="inline-flex min-h-11 w-full items-center justify-center rounded-bendjo-sm px-1 text-sm font-semibold text-leaf underline decoration-leaf/35 underline-offset-4 transition-colors hover:decoration-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Comparer les infusions</a></>}
+        actions={<><a href="#hibiscus" className="inline-flex min-h-12 w-full items-center justify-center rounded-bendjo-md bg-leaf px-7 py-3.5 text-sm font-semibold text-on-leaf transition-colors hover:bg-leaf/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Choisir une infusion</a><a href="#comptoir" className="inline-flex min-h-11 w-full items-center justify-center rounded-bendjo-sm px-1 text-sm font-semibold text-copy underline decoration-leaf/35 underline-offset-4 transition-colors hover:decoration-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 focus-visible:ring-offset-cream sm:w-auto">Comparer les infusions</a></>}
       />
 
-      <section id="comptoir" className="scroll-mt-20 bg-leaf py-16 text-cream sm:py-20 lg:py-24" aria-labelledby="comparison-title">
+      <section id="comptoir" className="scroll-mt-20 bg-leaf py-16 text-on-leaf sm:py-20 lg:py-24" aria-labelledby="comparison-title">
         <Container>
           <div className="grid gap-4 border-b border-cream/30 pb-7 md:grid-cols-[0.72fr_1fr] md:items-end md:gap-8">
             <div>
-              <p className="type-label text-cream/65">Comparaison rapide</p>
-              <h2 id="comparison-title" className="type-section-title-compact mt-2 text-cream">Le comptoir</h2>
+              <p className="type-label text-on-leaf">Comparaison rapide</p>
+              <h2 id="comparison-title" className="type-section-title-compact mt-2 text-on-leaf">Le comptoir</h2>
             </div>
-            <p className="max-w-xl leading-6 text-cream/80">Trois profils sensoriels. Un même format et un même prix.</p>
+            <p className="max-w-xl leading-6 text-on-leaf">Trois profils sensoriels. Un même format et un même prix.</p>
           </div>
 
           <div data-motion-group className="divide-y divide-cream/20">
             {infusionDetails.map(({ product, profile }, index) => (
               <article data-motion-item key={product.id} className="grid grid-cols-2 gap-x-5 gap-y-4 py-5 first:pt-6 last:pb-0 sm:grid-cols-4 sm:gap-x-7 sm:py-6 lg:grid-cols-[1.35fr_1fr_0.8fr_0.8fr_1fr] lg:items-center lg:gap-x-8">
-                <a href={`#${product.id}`} className="col-span-2 flex min-h-11 items-center gap-3 rounded-bendjo-sm font-display text-2xl leading-none text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream sm:col-span-4 lg:col-span-1">
+                <a href={`#${product.id}`} className="col-span-2 flex min-h-11 items-center gap-3 rounded-bendjo-sm font-display text-2xl leading-none text-on-leaf focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream sm:col-span-4 lg:col-span-1">
                   <span className={`h-3 w-3 shrink-0 rounded-full ring-2 ring-cream ${toneDots[index]}`} aria-hidden="true" />
                   <span>{product.name.replace("Infusion ", "")}</span>
                 </a>
                 <dl className="contents">
                   <div>
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-cream/60">Profil</dt>
-                    <dd className="mt-1 text-sm leading-5 text-cream">{profile}</dd>
+                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-on-leaf">Profil</dt>
+                    <dd className="mt-1 text-sm leading-5 text-on-leaf">{profile}</dd>
                   </div>
                   <div>
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-cream/60">Format</dt>
-                    <dd className="mt-1 text-sm leading-5 text-cream">10 sachets</dd>
+                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-on-leaf">Format</dt>
+                    <dd className="mt-1 text-sm leading-5 text-on-leaf">10 sachets</dd>
                   </div>
                   <div>
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-cream/60">Prix</dt>
-                    <dd className="mt-1 text-sm font-semibold leading-5 text-cream">1 500 FCFA</dd>
+                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-on-leaf">Prix</dt>
+                    <dd className="mt-1 text-sm font-semibold leading-5 text-on-leaf">1 500 FCFA</dd>
                   </div>
                   <div className="col-span-2 sm:col-span-1">
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-cream/60">Disponibilité</dt>
-                    <dd className="mt-1 text-sm leading-5 text-cream">À confirmer sur WhatsApp</dd>
+                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-on-leaf">Disponibilité</dt>
+                    <dd className="mt-1 text-sm leading-5 text-on-leaf">À confirmer sur WhatsApp</dd>
                   </div>
                 </dl>
               </article>
